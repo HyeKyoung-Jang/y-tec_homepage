@@ -25,18 +25,21 @@
   .hero {
     position: relative;
     width: 100%;
-    height: 100vh;
-    min-height: 700px;
+    height: 82vh;
+    max-height: 820px;
+    min-height: 620px;
     overflow: hidden;
   }
 
   .slide {
     position: absolute;
     inset: 0;
-    background-size: cover;
-    background-position: center;
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: right center;
     opacity: 0;
     transition: opacity 1s ease;
+    cursor: pointer;
   }
 
   .slide.active {
@@ -48,11 +51,12 @@
     inset: 0;
     background: linear-gradient(
       90deg,
-      rgba(255,255,255,0.55) 0%,
-      rgba(255,255,255,0.20) 45%,
+      rgba(255,255,255,0.58) 0%,
+      rgba(255,255,255,0.22) 42%,
       rgba(255,255,255,0.05) 100%
     );
     z-index: 2;
+    pointer-events: none;
   }
 
   .top-menu {
@@ -81,7 +85,7 @@
     bottom: 110px;
     z-index: 5;
     color: #213D28;
-    max-width: 520px;
+    max-width: 560px;
   }
 
   .hero-logo {
@@ -95,7 +99,14 @@
     display: block;
   }
 
-  .hero-text p {
+  .hero-title {
+    margin: 0 0 12px 0;
+    font-size: 42px;
+    font-weight: 800;
+    color: #213D28;
+  }
+
+  .hero-desc {
     margin: 0;
     font-size: 24px;
     line-height: 1.5;
@@ -116,6 +127,11 @@
     border-radius: 6px;
     font-weight: 700;
     font-size: 16px;
+    transition: 0.2s ease;
+  }
+
+  .hero-buttons a:hover {
+    opacity: 0.9;
   }
 
   .btn-primary {
@@ -127,10 +143,6 @@
     background: white;
     color: #213D28;
     border: 1px solid #213D28;
-  }
-
-  .hero-buttons a:hover {
-    opacity: 0.9;
   }
 
   .dots {
@@ -219,15 +231,20 @@
 
   @media (max-width: 1024px) {
     .hero {
-      height: 88vh;
-      min-height: 620px;
+      min-height: 600px;
+      height: 78vh;
+    }
+
+    .slide {
+      background-size: 110%;
+      background-position: center right;
     }
 
     .hero-text {
       left: 40px;
       right: 40px;
       bottom: 100px;
-      max-width: 480px;
+      max-width: 500px;
     }
 
     .top-menu {
@@ -239,8 +256,13 @@
 
   @media (max-width: 768px) {
     .hero {
+      min-height: 560px;
       height: auto;
-      min-height: 580px;
+    }
+
+    .slide {
+      background-size: cover;
+      background-position: center;
     }
 
     .top-menu {
@@ -266,7 +288,11 @@
       width: 170px;
     }
 
-    .hero-text p {
+    .hero-title {
+      font-size: 30px;
+    }
+
+    .hero-desc {
       font-size: 18px;
     }
 
@@ -303,9 +329,14 @@
 <body>
 
 <div class="hero">
-  <div class="slide active" style="background-image:url('main1.png')"></div>
-  <div class="slide" style="background-image:url('main2.png')"></div>
-  <div class="slide" style="background-image:url('main3.png')"></div>
+  <!-- 지구 이미지 → 회사소개 -->
+  <a href="company.html" class="slide active" style="background-image:url('main1.png')"></a>
+
+  <!-- 톱니 이미지 → 비즈니스 -->
+  <a href="business.html" class="slide" style="background-image:url('main2.png')"></a>
+
+  <!-- 전구 이미지 → 사업영역 -->
+  <a href="company.html#business" class="slide" style="background-image:url('main3.png')"></a>
 
   <div class="hero-overlay"></div>
 
@@ -321,11 +352,13 @@
     <div class="hero-logo">
       <img src="logo.png" alt="와이텍 로고">
     </div>
-    <p>IT 인프라 구축 및 통합 솔루션 전문 기업</p>
+
+    <h1 class="hero-title" id="heroTitle">회사소개</h1>
+    <p class="hero-desc" id="heroDesc">와이텍 소개 페이지로 이동합니다.</p>
 
     <div class="hero-buttons">
-      <a class="btn-primary" href="company.html">회사소개</a>
-      <a class="btn-secondary" href="business.html">비즈니스</a>
+      <a class="btn-primary" id="heroMainBtn" href="company.html">회사소개</a>
+      <a class="btn-secondary" id="heroSubBtn" href="company.html">바로가기</a>
     </div>
   </div>
 
@@ -366,29 +399,85 @@
 </footer>
 
 <script>
-  let slides = document.querySelectorAll(".slide");
-  let dots = document.querySelectorAll(".dot");
+  const slides = document.querySelectorAll(".slide");
+  const dots = document.querySelectorAll(".dot");
+  const heroTitle = document.getElementById("heroTitle");
+  const heroDesc = document.getElementById("heroDesc");
+  const heroMainBtn = document.getElementById("heroMainBtn");
+  const heroSubBtn = document.getElementById("heroSubBtn");
+
+  const slideData = [
+    {
+      title: "회사소개",
+      desc: "와이텍 소개 페이지로 이동합니다.",
+      mainText: "회사소개",
+      mainLink: "company.html",
+      subText: "바로가기",
+      subLink: "company.html"
+    },
+    {
+      title: "비즈니스",
+      desc: "비즈니스 페이지로 이동합니다.",
+      mainText: "비즈니스",
+      mainLink: "business.html",
+      subText: "서비스 보기",
+      subLink: "business.html"
+    },
+    {
+      title: "사업영역",
+      desc: "회사소개 내 사업영역 섹션으로 이동합니다.",
+      mainText: "사업영역",
+      mainLink: "company.html#business",
+      subText: "바로가기",
+      subLink: "company.html#business"
+    }
+  ];
+
   let currentIndex = 0;
+  let slideTimer;
 
-  function showSlide(n) {
+  function updateHeroText(index) {
+    heroTitle.textContent = slideData[index].title;
+    heroDesc.textContent = slideData[index].desc;
+    heroMainBtn.textContent = slideData[index].mainText;
+    heroMainBtn.href = slideData[index].mainLink;
+    heroSubBtn.textContent = slideData[index].subText;
+    heroSubBtn.href = slideData[index].subLink;
+  }
+
+  function showSlide(index) {
     slides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === n);
-      dots[i].classList.toggle("active", i === n);
+      slide.classList.toggle("active", i === index);
+      dots[i].classList.toggle("active", i === index);
     });
-    currentIndex = n;
+    currentIndex = index;
+    updateHeroText(index);
   }
 
-  function goSlide(n) {
-    showSlide(n);
+  function goSlide(index) {
+    showSlide(index);
+    resetTimer();
   }
 
-  setInterval(() => {
+  function nextSlide() {
     let next = currentIndex + 1;
     if (next >= slides.length) {
       next = 0;
     }
     showSlide(next);
-  }, 4000);
+  }
+
+  function startTimer() {
+    slideTimer = setInterval(nextSlide, 4000);
+  }
+
+  function resetTimer() {
+    clearInterval(slideTimer);
+    startTimer();
+  }
+
+  showSlide(0);
+  startTimer();
 </script>
 
 </body>
