@@ -1,154 +1,396 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>고객 · 파트너 | 와이텍</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>와이텍 | 고객 · 파트너</title>
 
-<style>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-body{
-margin:0;
-font-family:Arial;
-background:#f7f8f7;
-color:#222;
-}
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f8f7;
+      color: #222;
+    }
 
-/* HEADER */
+    a {
+      text-decoration: none;
+    }
 
-.header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-padding:24px 60px;
-display:flex;
-align-items:center;
-gap:90px;
-background:rgba(255,255,255,0.9);
-backdrop-filter:blur(6px);
-z-index:10;
-}
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      padding: 22px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 70px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(33,61,40,0.08);
+    }
 
-.header-logo img{
-width:170px;
-}
+    .header-logo img {
+      width: 170px;
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
 
-.top-menu{
-display:flex;
-gap:70px;
-}
+    .top-menu {
+      display: flex;
+      align-items: center;
+      gap: 52px;
+      flex-wrap: wrap;
+    }
 
-.top-menu a{
-color:#213D28;
-font-size:18px;
-font-weight:500;
-}
+    .top-menu a {
+      color: #213D28;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
 
-/* TITLE */
+    .top-menu a:hover,
+    .top-menu a.active {
+      color: #213D28;
+      font-weight: 700;
+    }
 
-.hero{
-padding-top:120px;
-padding-bottom:40px;
-text-align:center;
-}
+    .hero {
+      background: linear-gradient(135deg, #edf4ef, #f8faf8);
+      padding: 90px 56px 80px;
+      border-bottom: 1px solid #e4ebe5;
+    }
 
-.hero h1{
-font-size:44px;
-color:#213D28;
-margin-bottom:10px;
-}
+    .hero-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
 
-.hero p{
-color:#666;
-font-size:18px;
-}
+    .hero h1 {
+      margin: 0 0 18px;
+      font-size: 58px;
+      color: #213D28;
+      letter-spacing: -0.03em;
+    }
 
-/* LOGO SECTION */
+    .hero p {
+      margin: 0;
+      max-width: 760px;
+      font-size: 22px;
+      line-height: 1.65;
+      color: #415146;
+      font-weight: 500;
+    }
 
-.partner-section{
-padding:40px 60px 100px;
-max-width:1200px;
-margin:auto;
-text-align:center;
-}
+    .section {
+      padding: 80px 56px 90px;
+    }
 
-.logo-grid{
-display:flex;
-justify-content:center;
-align-items:center;
-flex-wrap:wrap;
-gap:50px;
-margin-top:40px;
-}
+    .section-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
 
-.logo-grid img{
-max-width:220px;
-width:100%;
-height:auto;
-filter:grayscale(100%);
-opacity:0.85;
-transition:0.25s;
-}
+    .section-head {
+      margin-bottom: 34px;
+    }
 
-.logo-grid img:hover{
-filter:none;
-opacity:1;
-transform:scale(1.05);
-}
+    .section-head h2 {
+      margin: 0 0 12px;
+      font-size: 42px;
+      color: #213D28;
+      letter-spacing: -0.02em;
+    }
 
-/* FOOTER */
+    .section-head p {
+      margin: 0;
+      font-size: 18px;
+      color: #616761;
+      line-height: 1.7;
+    }
 
-footer{
-background:#ffffff;
-color:#9aa19c;
-text-align:center;
-padding:26px 20px;
-font-size:13px;
-border-top:1px solid #e4e8e5;
-}
+    .info-box {
+      background: linear-gradient(135deg, #213D28, #335e42);
+      color: white;
+      border-radius: 18px;
+      padding: 32px 30px;
+      margin-bottom: 32px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
 
-</style>
+    .info-box h3 {
+      margin: 0 0 10px;
+      font-size: 28px;
+      color: white;
+    }
+
+    .info-box p {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .logo-card-wrap {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .logo-card {
+      background: #ffffff;
+      border: 1px solid #e2e8e3;
+      border-radius: 18px;
+      padding: 30px 24px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+      text-align: center;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .logo-card img {
+      max-width: 220px;
+      max-height: 100px;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      margin: 0 auto 16px;
+      display: block;
+    }
+
+    .logo-card h3 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      color: #213D28;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-card p {
+      margin: 0;
+      font-size: 15px;
+      color: #606661;
+      line-height: 1.7;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 34px;
+    }
+
+    .guide-card {
+      background: #ffffff;
+      border: 1px solid #e2e8e3;
+      border-radius: 18px;
+      padding: 26px 24px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    }
+
+    .guide-card h4 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      color: #213D28;
+    }
+
+    .guide-card p {
+      margin: 0;
+      font-size: 15px;
+      color: #606661;
+      line-height: 1.8;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, #213D28, #335e42);
+      color: white;
+      border-radius: 20px;
+      padding: 38px 34px;
+      margin-top: 34px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .cta-box h3 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      color: white;
+    }
+
+    .cta-box p {
+      margin: 0;
+      font-size: 17px;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.7;
+    }
+
+    .cta-box a {
+      display: inline-block;
+      padding: 14px 26px;
+      border-radius: 8px;
+      background: white;
+      color: #213D28;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    footer {
+      background: #ffffff;
+      color: #9aa19c;
+      text-align: center;
+      padding: 26px 20px;
+      font-size: 13px;
+      border-top: 1px solid #e4e8e5;
+    }
+
+    @media (max-width: 1024px) {
+      .header {
+        padding: 22px 28px;
+        gap: 40px;
+      }
+
+      .top-menu {
+        gap: 28px;
+      }
+
+      .hero,
+      .section {
+        padding-left: 28px;
+        padding-right: 28px;
+      }
+
+      .logo-card-wrap,
+      .guide-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        padding: 18px 20px;
+        align-items: flex-start;
+        gap: 18px;
+        flex-direction: column;
+      }
+
+      .header-logo img {
+        width: 140px;
+      }
+
+      .top-menu {
+        gap: 12px 18px;
+        justify-content: flex-start;
+      }
+
+      .top-menu a {
+        font-size: 15px;
+      }
+
+      .hero,
+      .section {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .section-head h2 {
+        font-size: 32px;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <header class="header">
+    <a href="index.html" class="header-logo">
+      <img src="logo.png" alt="와이텍 로고" />
+    </a>
 
-<header class="header">
+    <nav class="top-menu">
+      <a href="company.html">회사소개</a>
+      <a href="business.html">비즈니스</a>
+      <a href="client-partner.html" class="active">고객 · 파트너</a>
+      <a href="recruit.html">채용</a>
+      <a href="location.html">회사위치</a>
+    </nav>
+  </header>
 
-<a href="index.html" class="header-logo">
-<img src="logo.png">
-</a>
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>고객 · 파트너</h1>
+      <p>와이텍과 함께하는 주요 고객 및 파트너 정보를 확인할 수 있으며, 향후 로고와 협력 정보를 자유롭게 추가할 수 있습니다.</p>
+    </div>
+  </section>
 
-<nav class="top-menu">
-<a href="company.html">회사소개</a>
-<a href="business.html">비즈니스</a>
-<a href="client-partner.html">고객 · 파트너</a>
-<a href="recruit.html">채용</a>
-<a href="location.html">회사위치</a>
-</nav>
+  <section class="section">
+    <div class="section-inner">
+      <div class="info-box">
+        <h3>주요 고객 및 파트너</h3>
+        <p>현재는 등록된 이미지 수가 많지 않아 단일 카드 중심으로 구성했으며, 나중에 동일한 카드 블록을 복사해 확장할 수 있도록 제작했습니다.</p>
+      </div>
 
-</header>
+      <div class="section-head">
+        <h2>등록 이미지</h2>
+        <p>현재 등록된 고객·파트너 이미지를 표시하는 영역입니다. 이후 이미지가 늘어나면 같은 카드 형식으로 자연스럽게 확장할 수 있습니다.</p>
+      </div>
 
-<section class="hero">
+      <div class="logo-card-wrap">
+        <div class="logo-card">
+          <img src="client&partner.png" alt="고객 및 파트너 이미지">
+          <h3>고객 · 파트너</h3>
+          <p>현재 등록된 이미지입니다. 향후 이미지가 추가되면 동일한 카드 형식으로 확장 가능합니다.</p>
+        </div>
+      </div>
 
-<h1>고객 · 파트너</h1>
-<p>와이텍과 함께하는 주요 고객 및 파트너사</p>
+      <div class="guide-grid">
+        <div class="guide-card">
+          <h4>추가 방법 1</h4>
+          <p>GitHub 저장소에 새로운 이미지 파일을 업로드한 뒤, 현재 카드 블록을 복사해서 파일명만 바꾸면 바로 추가할 수 있습니다.</p>
+        </div>
 
-</section>
+        <div class="guide-card">
+          <h4>추가 방법 2</h4>
+          <p>현재는 한 장만 보여주지만, 나중에 같은 형식의 카드를 여러 개 배치하면 고객사와 파트너사를 자연스럽게 확장할 수 있습니다.</p>
+        </div>
 
-<section class="partner-section">
+        <div class="guide-card">
+          <h4>향후 확장</h4>
+          <p>이미지가 많아지면 고객사와 파트너사를 두 줄 또는 두 섹션으로 나누는 방식으로 쉽게 확장할 수 있습니다.</p>
+        </div>
+      </div>
 
-<div class="logo-grid">
+      <div class="cta-box">
+        <div>
+          <h3>와이텍의 비즈니스가 궁금하신가요?</h3>
+          <p>비즈니스 페이지에서 서비스 영역을 더 자세히 확인할 수 있습니다.</p>
+        </div>
+        <a href="business.html">비즈니스 보기</a>
+      </div>
+    </div>
+  </section>
 
-<img src="client&partner.png" alt="client partner">
-
-</div>
-
-</section>
-
-<footer>
-COPYRIGHT © 2026 Y-TEC ALL RIGHTS RESERVED.
-</footer>
-
+  <footer>
+    <p>COPYRIGHT © 2026 Y-TEC ALL RIGHTS RESERVED.</p>
+  </footer>
 </body>
 </html>
