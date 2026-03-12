@@ -65,14 +65,21 @@
     }
 
     .hero {
-      background: linear-gradient(135deg, #edf4ef, #f8faf8);
-      padding: 90px 56px 80px;
-      border-bottom: 1px solid #e4ebe5;
+      position: relative;
+      width: 100%;
+      min-height: 420px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.55) 45%, rgba(255,255,255,0.18) 100%),
+        url('recruit.png') no-repeat right center / cover;
+      display: flex;
+      align-items: center;
     }
 
     .hero-inner {
       max-width: 1320px;
       margin: 0 auto;
+      width: 100%;
+      padding: 90px 56px;
     }
 
     .hero h1 {
@@ -328,12 +335,12 @@
     }
 
     footer {
-      background: #213D28;
-      color: white;
+      background: #ffffff;
+      color: #9aa19c;
       text-align: center;
-      padding: 30px 20px;
-      font-size: 15px;
-      margin-top: 40px;
+      padding: 26px 20px;
+      font-size: 13px;
+      border-top: 1px solid #e4e8e5;
     }
 
     @media (max-width: 1024px) {
@@ -346,7 +353,7 @@
         gap: 28px;
       }
 
-      .hero,
+      .hero-inner,
       .section {
         padding-left: 28px;
         padding-right: 28px;
@@ -384,10 +391,15 @@
         font-size: 15px;
       }
 
-      .hero,
+      .hero-inner,
       .section {
         padding-left: 20px;
         padding-right: 20px;
+      }
+
+      .hero {
+        min-height: 360px;
+        background-position: center right;
       }
 
       .hero h1 {
@@ -488,7 +500,6 @@
           <p>현재 채용공고 URL이 정리되면 버튼 링크를 수정하여 사람인, 잡코리아, 원티드 등 외부 공고 페이지와 연결할 수 있습니다.</p>
         </div>
 
-        <!-- 여기 href에 실제 채용공고 URL 넣으면 됨 -->
         <a href="#" target="_blank" rel="noopener">채용공고 보러가기</a>
       </div>
 
