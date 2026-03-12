@@ -22,17 +22,17 @@
       text-decoration: none;
     }
 
-    /* 상단 헤더 */
     .header {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       z-index: 20;
-      padding: 24px 40px;
+      padding: 26px 56px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
+      gap: 70px;
     }
 
     .header-logo img {
@@ -44,21 +44,22 @@
 
     .top-menu {
       display: flex;
-      gap: 28px;
+      align-items: center;
+      gap: 52px;
       flex-wrap: wrap;
     }
 
     .top-menu a {
       color: #213D28;
-      font-size: 17px;
-      font-weight: 700;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
     }
 
     .top-menu a:hover {
-      opacity: 0.75;
+      opacity: 0.72;
     }
 
-    /* 메인 비주얼 */
     .hero {
       position: relative;
       width: 100%;
@@ -88,9 +89,9 @@
       inset: 0;
       background: linear-gradient(
         90deg,
-        rgba(255,255,255,0.58) 0%,
-        rgba(255,255,255,0.22) 42%,
-        rgba(255,255,255,0.05) 100%
+        rgba(255,255,255,0.60) 0%,
+        rgba(255,255,255,0.24) 42%,
+        rgba(255,255,255,0.06) 100%
       );
       z-index: 2;
       pointer-events: none;
@@ -107,9 +108,10 @@
 
     .hero-title {
       margin: 0 0 12px 0;
-      font-size: 42px;
+      font-size: 52px;
       font-weight: 800;
       color: #213D28;
+      letter-spacing: -0.03em;
     }
 
     .hero-desc {
@@ -168,55 +170,125 @@
       background: #213D28;
     }
 
-    /* 본문 */
     .section {
       padding: 90px 40px;
       text-align: center;
+      background: #f7f8f7;
     }
 
     .section h2 {
-      margin: 0 0 12px 0;
-      font-size: 48px;
+      margin: 0 0 14px 0;
+      font-size: 46px;
       color: #213D28;
+      letter-spacing: -0.02em;
     }
 
     .section p {
       margin: 0;
-      font-size: 20px;
-      color: #555;
+      font-size: 19px;
+      color: #5d655f;
     }
 
     .card-container {
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: 26px;
       margin-top: 50px;
       flex-wrap: wrap;
     }
 
     .card {
       background: white;
-      padding: 40px 30px;
-      width: 300px;
-      border-radius: 14px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      padding: 38px 30px;
+      width: 290px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+      text-align: left;
     }
 
     .card h3 {
-      margin-top: 0;
+      margin: 0 0 14px 0;
       color: #213D28;
       font-size: 28px;
+      letter-spacing: -0.02em;
     }
 
     .card p {
-      font-size: 18px;
-      color: #555;
+      font-size: 17px;
+      color: #5b5b5b;
+      line-height: 1.7;
+      margin: 0;
     }
 
     .card a {
       display: inline-block;
       margin-top: 18px;
-      font-size: 17px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #213D28;
+    }
+
+    .summary-section {
+      padding: 100px 40px 80px;
+      background: #ffffff;
+    }
+
+    .summary-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+
+    .summary-head {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    .summary-head h2 {
+      margin: 0 0 12px;
+      font-size: 44px;
+      color: #213D28;
+      letter-spacing: -0.02em;
+    }
+
+    .summary-head p {
+      margin: 0;
+      font-size: 18px;
+      color: #666;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .summary-card {
+      background: #f8faf8;
+      border: 1px solid #e2e8e3;
+      border-radius: 16px;
+      padding: 26px 22px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    }
+
+    .summary-card h3 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      color: #213D28;
+      letter-spacing: -0.02em;
+    }
+
+    .summary-card p {
+      margin: 0;
+      font-size: 15px;
+      color: #616761;
+      line-height: 1.7;
+      min-height: 84px;
+    }
+
+    .summary-card a {
+      display: inline-block;
+      margin-top: 18px;
+      font-size: 15px;
       font-weight: 700;
       color: #213D28;
     }
@@ -226,8 +298,13 @@
       color: white;
       text-align: center;
       padding: 30px 20px;
-      margin-top: 60px;
       font-size: 15px;
+    }
+
+    @media (max-width: 1280px) {
+      .summary-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
     }
 
     @media (max-width: 1024px) {
@@ -244,11 +321,12 @@
       }
 
       .header {
-        padding: 20px 24px;
+        padding: 22px 28px;
+        gap: 40px;
       }
 
       .top-menu {
-        gap: 18px;
+        gap: 28px;
       }
     }
 
@@ -265,7 +343,7 @@
       .header {
         padding: 18px 20px;
         align-items: flex-start;
-        gap: 14px;
+        gap: 18px;
         flex-direction: column;
       }
 
@@ -274,7 +352,7 @@
       }
 
       .top-menu {
-        gap: 12px 16px;
+        gap: 12px 18px;
         justify-content: flex-start;
       }
 
@@ -290,7 +368,7 @@
       }
 
       .hero-title {
-        font-size: 30px;
+        font-size: 34px;
       }
 
       .hero-desc {
@@ -307,15 +385,18 @@
         bottom: 28px;
       }
 
-      .section {
+      .section,
+      .summary-section {
         padding: 70px 20px;
       }
 
-      .section h2 {
-        font-size: 36px;
+      .section h2,
+      .summary-head h2 {
+        font-size: 34px;
       }
 
-      .section p {
+      .section p,
+      .summary-head p {
         font-size: 17px;
       }
 
@@ -323,13 +404,16 @@
         width: 100%;
         max-width: 360px;
       }
+
+      .summary-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 
 <body>
   <div class="hero">
-    <!-- 상단 헤더 -->
     <header class="header">
       <a href="index.html" class="header-logo">
         <img src="logo.png" alt="와이텍 로고" />
@@ -344,13 +428,8 @@
       </nav>
     </header>
 
-    <!-- 지구 이미지 → 회사소개 -->
     <a href="company.html" class="slide active" style="background-image:url('main1.png')"></a>
-
-    <!-- 톱니 이미지 → 비즈니스 -->
     <a href="business.html" class="slide" style="background-image:url('main2.png')"></a>
-
-    <!-- 전구 이미지 → 사업영역 -->
     <a href="company.html#business" class="slide" style="background-image:url('main3.png')"></a>
 
     <div class="hero-overlay"></div>
@@ -392,6 +471,47 @@
         <h3>인프라 구축</h3>
         <p>서버 · 네트워크 구축</p>
         <a href="business.html">더보기</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="summary-section">
+    <div class="summary-inner">
+      <div class="summary-head">
+        <h2>Site Overview</h2>
+        <p>상세 페이지로 이동할 수 있는 와이텍 홈페이지 구성입니다.</p>
+      </div>
+
+      <div class="summary-grid">
+        <div class="summary-card">
+          <h3>회사소개</h3>
+          <p>와이텍 소개, 사업영역, 경영비전, 조직구성, 연혁 등 회사 전반의 정보를 확인할 수 있습니다.</p>
+          <a href="company.html">페이지 이동</a>
+        </div>
+
+        <div class="summary-card">
+          <h3>비즈니스</h3>
+          <p>솔루션 구축 및 최적화, 컨설팅 서비스, 통합 유지보수, 인프라 구축, 마이그레이션 내용을 정리합니다.</p>
+          <a href="business.html">페이지 이동</a>
+        </div>
+
+        <div class="summary-card">
+          <h3>고객 · 파트너</h3>
+          <p>주요 고객사와 파트너 정보를 정리하고, 향후 로고나 협력사 정보를 추가할 수 있습니다.</p>
+          <a href="client-partner.html">페이지 이동</a>
+        </div>
+
+        <div class="summary-card">
+          <h3>채용</h3>
+          <p>채용정보와 현재 채용공고 링크를 연결해 지원자가 필요한 내용을 확인할 수 있도록 구성합니다.</p>
+          <a href="recruit.html">페이지 이동</a>
+        </div>
+
+        <div class="summary-card">
+          <h3>회사위치</h3>
+          <p>회사 주소, 연락처, 지도연동 정보를 통해 방문과 문의가 가능하도록 안내합니다.</p>
+          <a href="location.html">페이지 이동</a>
+        </div>
       </div>
     </div>
   </section>
