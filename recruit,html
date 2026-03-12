@@ -1,1 +1,526 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>와이텍 | 채용</title>
 
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f8f7;
+      color: #222;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      padding: 22px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 70px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(33,61,40,0.08);
+    }
+
+    .header-logo img {
+      width: 170px;
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .top-menu {
+      display: flex;
+      align-items: center;
+      gap: 52px;
+      flex-wrap: wrap;
+    }
+
+    .top-menu a {
+      color: #213D28;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .top-menu a:hover,
+    .top-menu a.active {
+      color: #213D28;
+      font-weight: 700;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #edf4ef, #f8faf8);
+      padding: 90px 56px 80px;
+      border-bottom: 1px solid #e4ebe5;
+    }
+
+    .hero-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      margin: 0 0 18px;
+      font-size: 58px;
+      color: #213D28;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 760px;
+      font-size: 22px;
+      line-height: 1.65;
+      color: #415146;
+      font-weight: 500;
+    }
+
+    .section {
+      padding: 80px 56px 90px;
+    }
+
+    .section-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+
+    .section-head {
+      margin-bottom: 34px;
+    }
+
+    .section-head h2 {
+      margin: 0 0 12px;
+      font-size: 42px;
+      color: #213D28;
+      letter-spacing: -0.02em;
+    }
+
+    .section-head p {
+      margin: 0;
+      font-size: 18px;
+      color: #616761;
+      line-height: 1.7;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e5ebe6;
+      border-radius: 18px;
+      padding: 32px 28px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    }
+
+    .card h3 {
+      margin: 0 0 14px;
+      font-size: 28px;
+      color: #213D28;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.8;
+      color: #5c625d;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #edf4ef;
+      color: #213D28;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, #213D28, #335e42);
+      color: white;
+      border: none;
+    }
+
+    .highlight h3,
+    .highlight p {
+      color: white;
+    }
+
+    .list-box {
+      display: grid;
+      gap: 16px;
+      margin-top: 14px;
+    }
+
+    .list-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: 17px;
+      color: #f1f7f2;
+      line-height: 1.7;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      margin-top: 10px;
+      border-radius: 50%;
+      background: #cfe3d5;
+      flex: 0 0 auto;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .process-box {
+      background: #ffffff;
+      border: 1px solid #e2e8e3;
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    }
+
+    .process-box strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 16px;
+      color: #213D28;
+    }
+
+    .process-box span {
+      font-size: 15px;
+      color: #606661;
+      line-height: 1.7;
+    }
+
+    .recruit-link-box {
+      background: #ffffff;
+      border: 1px solid #e2e8e3;
+      border-radius: 20px;
+      padding: 38px 34px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .recruit-link-box h3 {
+      margin: 0 0 10px;
+      font-size: 30px;
+      color: #213D28;
+    }
+
+    .recruit-link-box p {
+      margin: 0;
+      font-size: 17px;
+      color: #5f655f;
+      line-height: 1.8;
+    }
+
+    .recruit-link-box a {
+      display: inline-block;
+      padding: 14px 26px;
+      border-radius: 8px;
+      background: #213D28;
+      color: #fff;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .guide-card {
+      background: #ffffff;
+      border: 1px solid #e2e8e3;
+      border-radius: 18px;
+      padding: 26px 24px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    }
+
+    .guide-card h4 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      color: #213D28;
+    }
+
+    .guide-card p {
+      margin: 0;
+      font-size: 15px;
+      color: #606661;
+      line-height: 1.8;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, #213D28, #335e42);
+      color: white;
+      border-radius: 20px;
+      padding: 38px 34px;
+      margin-top: 34px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .cta-box h3 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      color: white;
+    }
+
+    .cta-box p {
+      margin: 0;
+      font-size: 17px;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.7;
+    }
+
+    .cta-box a {
+      display: inline-block;
+      padding: 14px 26px;
+      border-radius: 8px;
+      background: white;
+      color: #213D28;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    footer {
+      background: #213D28;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 15px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 1024px) {
+      .header {
+        padding: 22px 28px;
+        gap: 40px;
+      }
+
+      .top-menu {
+        gap: 28px;
+      }
+
+      .hero,
+      .section {
+        padding-left: 28px;
+        padding-right: 28px;
+      }
+
+      .grid-2,
+      .grid-3,
+      .guide-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        padding: 18px 20px;
+        align-items: flex-start;
+        gap: 18px;
+        flex-direction: column;
+      }
+
+      .header-logo img {
+        width: 140px;
+      }
+
+      .top-menu {
+        gap: 12px 18px;
+        justify-content: flex-start;
+      }
+
+      .top-menu a {
+        font-size: 15px;
+      }
+
+      .hero,
+      .section {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .section-head h2 {
+        font-size: 32px;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <a href="index.html" class="header-logo">
+      <img src="logo.png" alt="와이텍 로고" />
+    </a>
+
+    <nav class="top-menu">
+      <a href="company.html">회사소개</a>
+      <a href="business.html">비즈니스</a>
+      <a href="client-partner.html">고객 · 파트너</a>
+      <a href="recruit.html" class="active">채용</a>
+      <a href="location.html">회사위치</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>채용</h1>
+      <p>와이텍과 함께 성장할 인재를 기다립니다. 채용정보와 절차, 현재 채용공고 링크를 확인할 수 있습니다.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="grid-2">
+        <div class="card highlight">
+          <span class="tag" style="background: rgba(255,255,255,0.16); color: white;">채용정보</span>
+          <h3>함께 성장할 인재를 찾습니다</h3>
+          <p>와이텍은 기술 전문성과 책임감을 바탕으로 고객 환경을 함께 만들어갈 인재를 기다리고 있습니다.</p>
+
+          <div class="list-box">
+            <div class="list-item"><span class="dot"></span><span>책임감 있는 업무 수행</span></div>
+            <div class="list-item"><span class="dot"></span><span>협업과 커뮤니케이션 능력</span></div>
+            <div class="list-item"><span class="dot"></span><span>지속적인 성장과 학습 의지</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="tag">채용안내</span>
+          <h3>기본 채용 정보</h3>
+          <p>직무 소개, 인재상, 복지, 근무환경 등 상세 정보는 추후 실제 채용 공고와 함께 보강할 수 있도록 뼈대 형태로 구성했습니다.</p>
+        </div>
+      </div>
+
+      <div class="section-head" style="margin-top: 60px;">
+        <h2>채용절차</h2>
+        <p>현재는 기본 예시 절차로 구성해두었으며, 실제 채용 프로세스에 맞게 자유롭게 수정할 수 있습니다.</p>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-box">
+          <strong>STEP 01</strong>
+          <span>지원서 접수</span>
+        </div>
+        <div class="process-box">
+          <strong>STEP 02</strong>
+          <span>서류 검토</span>
+        </div>
+        <div class="process-box">
+          <strong>STEP 03</strong>
+          <span>면접 진행</span>
+        </div>
+        <div class="process-box">
+          <strong>STEP 04</strong>
+          <span>최종 합격 안내</span>
+        </div>
+      </div>
+
+      <div class="section-head" style="margin-top: 60px;">
+        <h2>현재 채용공고</h2>
+        <p>실제 채용공고 사이트 주소가 있다면 아래 버튼 링크만 바꿔서 바로 연결할 수 있습니다.</p>
+      </div>
+
+      <div class="recruit-link-box">
+        <div>
+          <h3>채용공고 바로가기</h3>
+          <p>현재 채용공고 URL이 정리되면 버튼 링크를 수정하여 사람인, 잡코리아, 원티드 등 외부 공고 페이지와 연결할 수 있습니다.</p>
+        </div>
+
+        <!-- 여기 href에 실제 채용공고 URL 넣으면 됨 -->
+        <a href="#" target="_blank" rel="noopener">채용공고 보러가기</a>
+      </div>
+
+      <div class="guide-grid">
+        <div class="guide-card">
+          <h4>수정 방법 1</h4>
+          <p>채용공고 연결은 버튼의 <code>href</code> 값만 실제 주소로 바꾸면 바로 적용됩니다.</p>
+        </div>
+
+        <div class="guide-card">
+          <h4>수정 방법 2</h4>
+          <p>채용절차는 단계별 카드 텍스트를 수정해서 실제 회사 프로세스에 맞게 변경할 수 있습니다.</p>
+        </div>
+
+        <div class="guide-card">
+          <h4>확장 가능</h4>
+          <p>추후 복지, 인재상, 직무 소개, FAQ 등 별도 섹션을 같은 스타일로 계속 추가할 수 있습니다.</p>
+        </div>
+      </div>
+
+      <div class="cta-box">
+        <div>
+          <h3>회사와 비즈니스 정보도 함께 확인해보세요</h3>
+          <p>와이텍 소개와 주요 서비스 내용을 다른 페이지에서 자세히 확인할 수 있습니다.</p>
+        </div>
+        <a href="company.html">회사소개 보기</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© Y-TECH. All rights reserved.</p>
+  </footer>
+</body>
+</html>
