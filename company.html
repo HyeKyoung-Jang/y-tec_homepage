@@ -1,1 +1,653 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>와이텍 | 회사소개</title>
 
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f8f7;
+      color: #222;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      padding: 22px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 70px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(33,61,40,0.08);
+    }
+
+    .header-logo img {
+      width: 170px;
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .top-menu {
+      display: flex;
+      align-items: center;
+      gap: 52px;
+      flex-wrap: wrap;
+    }
+
+    .top-menu a {
+      color: #213D28;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .top-menu a:hover,
+    .top-menu a.active {
+      color: #213D28;
+      font-weight: 700;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 420px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.55) 45%, rgba(255,255,255,0.18) 100%),
+        url('company.png') no-repeat right center / cover;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 90px 56px;
+    }
+
+    .hero h1 {
+      margin: 0 0 18px;
+      font-size: 58px;
+      color: #213D28;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 620px;
+      font-size: 22px;
+      line-height: 1.65;
+      color: #415146;
+      font-weight: 500;
+    }
+
+    .section {
+      padding: 90px 56px;
+    }
+
+    .section-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+
+    .section-head {
+      margin-bottom: 34px;
+    }
+
+    .section-head h2 {
+      margin: 0 0 12px;
+      font-size: 42px;
+      color: #213D28;
+      letter-spacing: -0.02em;
+    }
+
+    .section-head p {
+      margin: 0;
+      font-size: 18px;
+      color: #616761;
+      line-height: 1.7;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e5ebe6;
+      border-radius: 18px;
+      padding: 32px 28px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    }
+
+    .card h3 {
+      margin: 0 0 14px;
+      font-size: 28px;
+      color: #213D28;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.8;
+      color: #5c625d;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #edf4ef;
+      color: #213D28;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .intro-highlight {
+      background: linear-gradient(135deg, #213D28, #335e42);
+      color: white;
+      border: none;
+    }
+
+    .intro-highlight h3,
+    .intro-highlight p {
+      color: white;
+    }
+
+    .list-box {
+      display: grid;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .list-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: 17px;
+      color: #f1f7f2;
+      line-height: 1.7;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      margin-top: 10px;
+      border-radius: 50%;
+      background: #cfe3d5;
+      flex: 0 0 auto;
+    }
+
+    .business-quick {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .quick-card {
+      background: #ffffff;
+      border: 1px solid #e2e8e3;
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: left;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    }
+
+    .quick-card h4 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      color: #213D28;
+      letter-spacing: -0.02em;
+    }
+
+    .quick-card p {
+      margin: 0;
+      font-size: 15px;
+      color: #606661;
+      line-height: 1.7;
+    }
+
+    .org-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .org-diagram {
+      background: #ffffff;
+      border: 1px solid #e5ebe6;
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    }
+
+    .org-top {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .org-top .box {
+      display: inline-block;
+      min-width: 180px;
+      padding: 16px 22px;
+      border-radius: 12px;
+      background: #213D28;
+      color: #fff;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .org-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .org-row .box {
+      padding: 18px 14px;
+      border-radius: 12px;
+      background: #edf4ef;
+      color: #213D28;
+      font-weight: 700;
+      text-align: center;
+      border: 1px solid #dce8df;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      background: #ffffff;
+      border: 1px solid #e2e8e3;
+      border-radius: 16px;
+      padding: 22px 24px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .timeline-year {
+      font-size: 24px;
+      font-weight: 800;
+      color: #213D28;
+      letter-spacing: -0.02em;
+    }
+
+    .timeline-content h4 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      color: #213D28;
+    }
+
+    .timeline-content p {
+      margin: 0;
+      font-size: 16px;
+      color: #5f655f;
+      line-height: 1.7;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, #213D28, #335e42);
+      color: white;
+      border-radius: 20px;
+      padding: 38px 34px;
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .cta-box h3 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      color: white;
+    }
+
+    .cta-box p {
+      margin: 0;
+      font-size: 17px;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.7;
+    }
+
+    .cta-box a {
+      display: inline-block;
+      padding: 14px 26px;
+      border-radius: 8px;
+      background: white;
+      color: #213D28;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    footer {
+      background: #213D28;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 15px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 1280px) {
+      .business-quick {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .header {
+        padding: 22px 28px;
+        gap: 40px;
+      }
+
+      .top-menu {
+        gap: 28px;
+      }
+
+      .hero-inner,
+      .section {
+        padding-left: 28px;
+        padding-right: 28px;
+      }
+
+      .grid-2,
+      .org-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .business-quick {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        padding: 18px 20px;
+        align-items: flex-start;
+        gap: 18px;
+        flex-direction: column;
+      }
+
+      .header-logo img {
+        width: 140px;
+      }
+
+      .top-menu {
+        gap: 12px 18px;
+        justify-content: flex-start;
+      }
+
+      .top-menu a {
+        font-size: 15px;
+      }
+
+      .hero-inner,
+      .section {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .hero {
+        min-height: 360px;
+        background-position: center right;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .section-head h2 {
+        font-size: 32px;
+      }
+
+      .grid-3,
+      .business-quick {
+        grid-template-columns: 1fr;
+      }
+
+      .org-row {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .timeline-year {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <a href="index.html" class="header-logo">
+      <img src="logo.png" alt="와이텍 로고" />
+    </a>
+
+    <nav class="top-menu">
+      <a href="company.html" class="active">회사소개</a>
+      <a href="business.html">비즈니스</a>
+      <a href="client-partner.html">고객 · 파트너</a>
+      <a href="recruit.html">채용</a>
+      <a href="location.html">회사위치</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>회사소개</h1>
+      <p>와이텍의 가치와 방향, 그리고 기업 IT 환경을 위한 전문 서비스를 소개합니다.</p>
+    </div>
+  </section>
+
+  <section class="section" id="intro">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>와이텍</h2>
+        <p>고객 환경에 맞는 IT 인프라와 솔루션을 제안하고, 안정적인 운영 체계를 함께 만들어가는 기술 파트너를 지향합니다.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card intro-highlight">
+          <span class="tag" style="background: rgba(255,255,255,0.16); color: white;">회사소개</span>
+          <h3>신뢰할 수 있는 IT 파트너</h3>
+          <p>와이텍은 기업 IT 환경에 필요한 인프라 구축, 솔루션 도입, 운영 안정화, 유지보수까지 고객의 업무 흐름에 맞춘 서비스를 제공합니다.</p>
+
+          <div class="list-box">
+            <div class="list-item"><span class="dot"></span><span>고객 환경 중심의 실무형 제안</span></div>
+            <div class="list-item"><span class="dot"></span><span>구축 이후 운영까지 고려한 서비스</span></div>
+            <div class="list-item"><span class="dot"></span><span>안정성과 효율성을 함께 보는 기술 지원</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="tag">핵심 가치</span>
+          <h3>기술과 운영을 연결하는 기업</h3>
+          <p>단순한 시스템 도입을 넘어, 실제 운영 환경에서 고객이 안정적이고 효율적으로 업무를 수행할 수 있도록 지속 가능한 IT 기반을 제공합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="business">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>사업영역</h2>
+        <p>와이텍은 구축, 운영, 유지보수, 이전까지 기업 IT 환경 전반에 필요한 핵심 서비스를 제공합니다.</p>
+      </div>
+
+      <div class="business-quick">
+        <div class="quick-card">
+          <h4>솔루션 구축 및 최적화</h4>
+          <p>고객 환경에 적합한 솔루션 설계와 구축, 도입 후 최적화까지 지원합니다.</p>
+        </div>
+        <div class="quick-card">
+          <h4>컨설팅 서비스</h4>
+          <p>현황 분석과 운영 전략 수립 등 실무형 IT 컨설팅을 제공합니다.</p>
+        </div>
+        <div class="quick-card">
+          <h4>통합 유지보수</h4>
+          <p>장비와 시스템, 솔루션을 통합 관점에서 관리하여 안정성을 높입니다.</p>
+        </div>
+        <div class="quick-card">
+          <h4>인프라 구축</h4>
+          <p>서버, 스토리지, 네트워크 등 IT 인프라 환경을 체계적으로 구축합니다.</p>
+        </div>
+        <div class="quick-card">
+          <h4>통합이전 · 마이그레이션</h4>
+          <p>서비스 연속성을 고려한 이전과 전환, 안정화 작업을 수행합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="vision">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>경영비전</h2>
+        <p>기술의 실효성과 운영의 안정성을 기반으로, 고객에게 지속 가능한 IT 환경을 제공하는 것을 목표로 합니다.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <span class="tag">VISION 01</span>
+          <h3>안정성</h3>
+          <p>고객 업무에 차질이 없도록 안정적인 시스템 환경과 운영 체계를 우선으로 생각합니다.</p>
+        </div>
+
+        <div class="card">
+          <span class="tag">VISION 02</span>
+          <h3>효율성</h3>
+          <p>불필요한 복잡성을 줄이고, 실제 업무 현장에서 효율이 높아지는 방향을 제안합니다.</p>
+        </div>
+
+        <div class="card">
+          <span class="tag">VISION 03</span>
+          <h3>지속성</h3>
+          <p>도입 이후에도 장기적으로 활용 가능한 구조와 서비스 품질을 지향합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="organization">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>조직구성</h2>
+        <p>실제 조직도에 맞춰 추후 수정할 수 있도록 임시 구조로 구성해둔 영역입니다.</p>
+      </div>
+
+      <div class="org-wrap">
+        <div class="org-diagram">
+          <div class="org-top">
+            <div class="box">대표이사</div>
+          </div>
+
+          <div class="org-row">
+            <div class="box">사업부</div>
+            <div class="box">기술지원부</div>
+            <div class="box">관리부</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="tag">조직구성 안내</span>
+          <h3>셀프 수정 가능한 구조</h3>
+          <p>현재는 임시 예시 조직도로 구성되어 있으며, 실제 부서명과 역할에 맞게 직접 수정할 수 있도록 단순한 구조로 제작했습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="history">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>연혁</h2>
+        <p>설립, 주요 프로젝트 수주, 파트너십 체결, 사업 확장 등 주요 이력을 자유롭게 수정할 수 있는 영역입니다.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">2026</div>
+          <div class="timeline-content">
+            <h4>홈페이지 리뉴얼 및 사업 구조 정비</h4>
+            <p>와이텍 홈페이지 리뉴얼 초안 구축과 사업영역 구조 재정비를 진행했습니다.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2025</div>
+          <div class="timeline-content">
+            <h4>주요 고객사 인프라 구축 수행</h4>
+            <p>다양한 고객 환경을 대상으로 IT 인프라 구축 및 유지보수 프로젝트를 수행했습니다.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2024</div>
+          <div class="timeline-content">
+            <h4>솔루션 구축 및 최적화 사업 확대</h4>
+            <p>고객 요구에 맞춘 솔루션 도입과 운영 최적화 업무를 확대했습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-box">
+        <div>
+          <h3>와이텍의 비즈니스가 궁금하신가요?</h3>
+          <p>비즈니스 페이지에서 서비스 영역을 더 자세히 확인할 수 있습니다.</p>
+        </div>
+        <a href="business.html">비즈니스 보기</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© Y-TECH. All rights reserved.</p>
+  </footer>
+</body>
+</html>
