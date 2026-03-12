@@ -6,197 +6,389 @@
 <title>와이텍</title>
 
 <style>
+  * {
+    box-sizing: border-box;
+  }
 
-body{
-margin:0;
-font-family:Arial;
-background:#f5f5f5;
-}
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #222;
+  }
 
-header{
-background:#213D28;
-color:white;
-padding:20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
+  a {
+    text-decoration: none;
+  }
 
-nav a{
-color:white;
-margin-left:20px;
-text-decoration:none;
-font-weight:bold;
-}
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 700px;
+    overflow: hidden;
+  }
 
-.hero{
-height:500px;
-position:relative;
-overflow:hidden;
-}
+  .slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
 
-.slide{
-position:absolute;
-width:100%;
-height:100%;
-background-size:cover;
-background-position:center;
-opacity:0;
-transition:1s;
-}
+  .slide.active {
+    opacity: 1;
+  }
 
-.slide.active{
-opacity:1;
-}
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(255,255,255,0.55) 0%,
+      rgba(255,255,255,0.20) 45%,
+      rgba(255,255,255,0.05) 100%
+    );
+    z-index: 2;
+  }
 
-.hero-text{
-position:absolute;
-bottom:80px;
-left:80px;
-color:white;
-}
+  .top-menu {
+    position: absolute;
+    top: 28px;
+    right: 40px;
+    z-index: 5;
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
 
-.hero-text h1{
-font-size:48px;
-margin:0;
-}
+  .top-menu a {
+    color: #213D28;
+    font-size: 17px;
+    font-weight: 700;
+  }
 
-.hero-text button{
-margin-top:20px;
-padding:12px 25px;
-border:none;
-background:white;
-color:#213D28;
-font-weight:bold;
-cursor:pointer;
-}
+  .top-menu a:hover {
+    opacity: 0.75;
+  }
 
-.section{
-padding:80px;
-text-align:center;
-}
+  .hero-text {
+    position: absolute;
+    left: 80px;
+    bottom: 110px;
+    z-index: 5;
+    color: #213D28;
+    max-width: 520px;
+  }
 
-.card-container{
-display:flex;
-justify-content:center;
-gap:30px;
-margin-top:40px;
-}
+  .hero-logo {
+    margin-bottom: 22px;
+  }
 
-.card{
-background:white;
-padding:40px;
-width:260px;
-border-radius:10px;
-box-shadow:0 5px 20px rgba(0,0,0,0.1);
-}
+  .hero-logo img {
+    width: 220px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
 
-.card h3{
-color:#213D28;
-}
+  .hero-text p {
+    margin: 0;
+    font-size: 24px;
+    line-height: 1.5;
+    font-weight: 600;
+    color: #213D28;
+  }
 
-.card a{
-display:inline-block;
-margin-top:15px;
-color:#213D28;
-font-weight:bold;
-}
+  .hero-buttons {
+    margin-top: 28px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
 
-footer{
-background:#222;
-color:white;
-text-align:center;
-padding:30px;
-margin-top:80px;
-}
+  .hero-buttons a {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 16px;
+  }
 
+  .btn-primary {
+    background: #213D28;
+    color: white;
+  }
+
+  .btn-secondary {
+    background: white;
+    color: #213D28;
+    border: 1px solid #213D28;
+  }
+
+  .hero-buttons a:hover {
+    opacity: 0.9;
+  }
+
+  .dots {
+    position: absolute;
+    bottom: 35px;
+    left: 80px;
+    z-index: 6;
+    display: flex;
+    gap: 10px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(33,61,40,0.35);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .dot.active {
+    background: #213D28;
+  }
+
+  .section {
+    padding: 90px 40px;
+    text-align: center;
+  }
+
+  .section h2 {
+    margin: 0 0 12px 0;
+    font-size: 48px;
+    color: #213D28;
+  }
+
+  .section p {
+    margin: 0;
+    font-size: 20px;
+    color: #555;
+  }
+
+  .card-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    background: white;
+    padding: 40px 30px;
+    width: 300px;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+
+  .card h3 {
+    margin-top: 0;
+    color: #213D28;
+    font-size: 28px;
+  }
+
+  .card p {
+    font-size: 18px;
+    color: #555;
+  }
+
+  .card a {
+    display: inline-block;
+    margin-top: 18px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #213D28;
+  }
+
+  footer {
+    background: #213D28;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 60px;
+    font-size: 15px;
+  }
+
+  @media (max-width: 1024px) {
+    .hero {
+      height: 88vh;
+      min-height: 620px;
+    }
+
+    .hero-text {
+      left: 40px;
+      right: 40px;
+      bottom: 100px;
+      max-width: 480px;
+    }
+
+    .top-menu {
+      top: 20px;
+      right: 24px;
+      gap: 18px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      height: auto;
+      min-height: 580px;
+    }
+
+    .top-menu {
+      left: 20px;
+      right: 20px;
+      top: 18px;
+      gap: 12px 16px;
+      justify-content: flex-end;
+    }
+
+    .top-menu a {
+      font-size: 15px;
+    }
+
+    .hero-text {
+      left: 24px;
+      right: 24px;
+      bottom: 90px;
+      max-width: none;
+    }
+
+    .hero-logo img {
+      width: 170px;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+    }
+
+    .hero-buttons a {
+      padding: 12px 20px;
+      font-size: 15px;
+    }
+
+    .dots {
+      left: 24px;
+      bottom: 28px;
+    }
+
+    .section {
+      padding: 70px 20px;
+    }
+
+    .section h2 {
+      font-size: 36px;
+    }
+
+    .section p {
+      font-size: 17px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 360px;
+    }
+  }
 </style>
 </head>
 
 <body>
 
-<header>
-
-<h2>와이텍</h2>
-
-<nav>
-<a href="company.html">회사소개</a>
-<a href="business.html">비즈니스</a>
-<a href="client-partner.html">고객 · 파트너</a>
-<a href="recruit.html">채용</a>
-<a href="location.html">회사위치</a>
-</nav>
-
-</header>
-
 <div class="hero">
+  <div class="slide active" style="background-image:url('main1.png')"></div>
+  <div class="slide" style="background-image:url('main2.png')"></div>
+  <div class="slide" style="background-image:url('main3.png')"></div>
 
-<div class="slide active" style="background-image:url('main1.png')"></div>
-<div class="slide" style="background-image:url('main2.png')"></div>
-<div class="slide" style="background-image:url('main3.png')"></div>
+  <div class="hero-overlay"></div>
 
-<div class="hero-text">
-<h1>와이텍</h1>
-<p>IT 인프라 구축 및 통합 솔루션 전문 기업</p>
-<button onclick="location.href='company.html'">회사소개</button>
-</div>
+  <nav class="top-menu">
+    <a href="company.html">회사소개</a>
+    <a href="business.html">비즈니스</a>
+    <a href="client-partner.html">고객 · 파트너</a>
+    <a href="recruit.html">채용</a>
+    <a href="location.html">회사위치</a>
+  </nav>
 
+  <div class="hero-text">
+    <div class="hero-logo">
+      <img src="logo.png" alt="와이텍 로고">
+    </div>
+    <p>IT 인프라 구축 및 통합 솔루션 전문 기업</p>
+
+    <div class="hero-buttons">
+      <a class="btn-primary" href="company.html">회사소개</a>
+      <a class="btn-secondary" href="business.html">비즈니스</a>
+    </div>
+  </div>
+
+  <div class="dots">
+    <button class="dot active" onclick="goSlide(0)"></button>
+    <button class="dot" onclick="goSlide(1)"></button>
+    <button class="dot" onclick="goSlide(2)"></button>
+  </div>
 </div>
 
 <section class="section">
+  <h2>Business</h2>
+  <p>와이텍의 주요 비즈니스 영역</p>
 
-<h2>Business</h2>
-<p>와이텍의 주요 비즈니스 영역</p>
+  <div class="card-container">
+    <div class="card">
+      <h3>솔루션 구축</h3>
+      <p>솔루션 구축 및 최적화</p>
+      <a href="business.html">더보기</a>
+    </div>
 
-<div class="card-container">
+    <div class="card">
+      <h3>컨설팅</h3>
+      <p>IT 컨설팅 서비스</p>
+      <a href="business.html">더보기</a>
+    </div>
 
-<div class="card">
-<h3>솔루션 구축</h3>
-<p>솔루션 구축 및 최적화</p>
-<a href="business.html">더보기</a>
-</div>
-
-<div class="card">
-<h3>컨설팅</h3>
-<p>IT 컨설팅 서비스</p>
-<a href="business.html">더보기</a>
-</div>
-
-<div class="card">
-<h3>인프라 구축</h3>
-<p>서버 · 네트워크 구축</p>
-<a href="business.html">더보기</a>
-</div>
-
-</div>
-
+    <div class="card">
+      <h3>인프라 구축</h3>
+      <p>서버 · 네트워크 구축</p>
+      <a href="business.html">더보기</a>
+    </div>
+  </div>
 </section>
 
 <footer>
-
-<p>© Y-TECH</p>
-
+  <p>© Y-TECH. All rights reserved.</p>
 </footer>
 
 <script>
+  let slides = document.querySelectorAll(".slide");
+  let dots = document.querySelectorAll(".dot");
+  let currentIndex = 0;
 
-let slides = document.querySelectorAll(".slide")
-let index=0
+  function showSlide(n) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === n);
+      dots[i].classList.toggle("active", i === n);
+    });
+    currentIndex = n;
+  }
 
-setInterval(()=>{
+  function goSlide(n) {
+    showSlide(n);
+  }
 
-slides[index].classList.remove("active")
-
-index++
-
-if(index>=slides.length){
-index=0
-}
-
-slides[index].classList.add("active")
-
-},4000)
-
+  setInterval(() => {
+    let next = currentIndex + 1;
+    if (next >= slides.length) {
+      next = 0;
+    }
+    showSlide(next);
+  }, 4000);
 </script>
 
 </body>
