@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>와이텍 | 채용</title>
 
-<link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="icon" type="image/png" href="./favicon.png">
 
   <style>
     * {
@@ -127,12 +127,6 @@
       line-height: 1.7;
     }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 28px;
-    }
-
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -161,17 +155,6 @@
       color: #5c625d;
     }
 
-    .tag {
-      display: inline-block;
-      margin-bottom: 14px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: #edf4ef;
-      color: #213D28;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
     .highlight {
       background: linear-gradient(135deg, #213D28, #335e42);
       color: white;
@@ -183,10 +166,16 @@
       color: white;
     }
 
+    .recruit-main-card {
+      width: 100%;
+      max-width: 100%;
+      padding: 36px 30px;
+    }
+
     .list-box {
       display: grid;
       gap: 16px;
-      margin-top: 14px;
+      margin-top: 18px;
     }
 
     .list-item {
@@ -272,68 +261,36 @@
       white-space: nowrap;
     }
 
-    .guide-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-      margin-top: 30px;
-    }
-
-    .guide-card {
-      background: #ffffff;
-      border: 1px solid #e2e8e3;
-      border-radius: 18px;
-      padding: 26px 24px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-    }
-
-    .guide-card h4 {
-      margin: 0 0 10px;
-      font-size: 22px;
-      color: #213D28;
-    }
-
-    .guide-card p {
-      margin: 0;
-      font-size: 15px;
-      color: #606661;
-      line-height: 1.8;
-    }
-
-    .cta-box {
+    .continue-box {
       background: linear-gradient(135deg, #213D28, #335e42);
       color: white;
       border-radius: 20px;
-      padding: 38px 34px;
-      margin-top: 34px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
+      padding: 46px 34px;
+      margin-top: 10px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
     }
 
-    .cta-box h3 {
-      margin: 0 0 8px;
-      font-size: 30px;
+    .continue-box .dots {
+      font-size: 44px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: 8px;
+      margin-bottom: 16px;
+    }
+
+    .continue-box h3 {
+      margin: 0 0 10px;
+      font-size: 34px;
       color: white;
+      letter-spacing: -0.02em;
     }
 
-    .cta-box p {
+    .continue-box p {
       margin: 0;
       font-size: 17px;
       color: rgba(255,255,255,0.88);
-      line-height: 1.7;
-    }
-
-    .cta-box a {
-      display: inline-block;
-      padding: 14px 26px;
-      border-radius: 8px;
-      background: white;
-      color: #213D28;
-      font-weight: 700;
-      white-space: nowrap;
+      line-height: 1.8;
     }
 
     footer {
@@ -361,9 +318,7 @@
         padding-right: 28px;
       }
 
-      .grid-2,
-      .grid-3,
-      .guide-grid {
+      .grid-3 {
         grid-template-columns: 1fr;
       }
 
@@ -419,6 +374,18 @@
       .process-grid {
         grid-template-columns: 1fr;
       }
+
+      .recruit-link-box {
+        padding: 28px 24px;
+      }
+
+      .recruit-link-box h3 {
+        font-size: 24px;
+      }
+
+      .continue-box h3 {
+        font-size: 28px;
+      }
     }
   </style>
 </head>
@@ -441,25 +408,23 @@
   <section class="hero">
     <div class="hero-inner">
       <h1>채용</h1>
-      <p>와이텍과 함께 성장할 인재를 기다립니다. </p>
+      <p>와이텍과 함께 성장할 인재를 기다립니다.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="section-inner">
-      <div class="grid-2">
-        <div class="card highlight">
-          <span class="tag" style="background: rgba(255,255,255,0.16); color: white;">채용정보</span>
-          <h3>함께 성장할 인재를 찾습니다</h3>
-          <p>와이텍은 전문성과 책임감을 바탕으로 고객 환경을 함께 만들어갈 인재를 기다리고 있습니다.</p>
 
-          <div class="list-box">
-            <div class="list-item"><span class="dot"></span><span>책임감 있는 업무 수행</span></div>
-            <div class="list-item"><span class="dot"></span><span>협업과 커뮤니케이션 능력</span></div>
-            <div class="list-item"><span class="dot"></span><span>지속적인 성장과 학습 의지</span></div>
-          </div>
+      <div class="card highlight recruit-main-card">
+        <h3>함께 성장할 인재를 찾습니다</h3>
+        <p>와이텍은 기술 전문성과 책임감을 바탕으로 고객 환경을 함께 만들어갈 인재를 기다리고 있습니다.</p>
+
+        <div class="list-box">
+          <div class="list-item"><span class="dot"></span><span>책임감 있는 업무 수행</span></div>
+          <div class="list-item"><span class="dot"></span><span>협업과 커뮤니케이션 능력</span></div>
+          <div class="list-item"><span class="dot"></span><span>지속적인 성장과 학습 의지</span></div>
         </div>
-
+      </div>
 
       <div class="section-head" style="margin-top: 60px;">
         <h2>채용절차</h2>
@@ -487,7 +452,9 @@
 
       <div class="section-head" style="margin-top: 60px;">
         <h2>진행중인 채용</h2>
-       <div class="recruit-link-box">
+      </div>
+
+      <div class="recruit-link-box">
         <div>
           <h3>채용공고 바로가기</h3>
           <p>https://</p>
@@ -496,30 +463,17 @@
         <a href="#" target="_blank" rel="noopener">채용공고 보러가기</a>
       </div>
 
-     <div class="section-head" style="margin-top: 60px;">
-  <h2>복리후생</h2>
-</div>
+      <div class="section-head" style="margin-top: 60px;">
+        <h2>복리후생</h2>
+      </div>
 
-<div class="guide-grid">
+      <div class="continue-box">
+        <div class="dots">...</div>
+        <h3>To be continued</h3>
+        <p>추후 추가 예정</p>
+      </div>
 
-  <div class="guide-card">
-    <h4>복리후생 1</h4>
-    <p>추후 추가 예정</p>
-  </div>
-
-  <div class="guide-card">
-    <h4>복리후생 2</h4>
-    <p>추후 추가 예정</p>
-  </div>
-
-  <div class="guide-card">
-    <h4>복리후생 3</h4>
-    <p>추후 추가 예정</p>
-  </div>
-
-</div>
-
-
+    </div>
   </section>
 
   <footer>
