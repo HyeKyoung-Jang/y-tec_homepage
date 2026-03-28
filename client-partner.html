@@ -8,7 +8,9 @@
   <link rel="icon" type="image/png" href="./favicon.png">
 
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html, body {
       margin: 0;
@@ -18,7 +20,9 @@
       color: #222;
     }
 
-    a { text-decoration: none; }
+    a {
+      text-decoration: none;
+    }
 
     .header {
       position: sticky;
@@ -27,30 +31,47 @@
       width: 100%;
       padding: 22px 56px;
       display: flex;
+      align-items: center;
+      justify-content: flex-start;
       gap: 70px;
       background: rgba(255,255,255,0.92);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(33,61,40,0.08);
     }
 
-    .header-logo img { width: 170px; }
+    .header-logo img {
+      width: 170px;
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
 
     .top-menu {
       display: flex;
+      align-items: center;
       gap: 52px;
+      flex-wrap: wrap;
     }
 
     .top-menu a {
       color: #213D28;
       font-size: 18px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
     }
 
-    .top-menu a.active { font-weight: 700; }
+    .top-menu a:hover,
+    .top-menu a.active {
+      color: #213D28;
+      font-weight: 700;
+    }
 
     .hero {
+      position: relative;
+      width: 100%;
       min-height: 420px;
       background:
-        linear-gradient(90deg, rgba(255,255,255,0.88), rgba(255,255,255,0.2)),
+        linear-gradient(90deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.55) 45%, rgba(255,255,255,0.18) 100%),
         url('client&partner.png') no-repeat right center / cover;
       display: flex;
       align-items: center;
@@ -59,16 +80,28 @@
     .hero-inner {
       max-width: 1320px;
       margin: 0 auto;
+      width: 100%;
       padding: 90px 56px;
     }
 
     .hero h1 {
+      margin: 0 0 18px;
       font-size: 58px;
       color: #213D28;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 720px;
+      font-size: 22px;
+      line-height: 1.65;
+      color: #415146;
+      font-weight: 500;
     }
 
     .section {
-      padding: 80px 56px;
+      padding: 80px 56px 90px;
     }
 
     .section-inner {
@@ -76,52 +109,53 @@
       margin: 0 auto;
     }
 
-    .info-box {
-      background: linear-gradient(135deg, #213D28, #335e42);
-      color: white;
-      border-radius: 18px;
-      padding: 32px;
-      margin-bottom: 40px;
-    }
-
-    .info-box h3 { margin: 0; }
-
     .partner-intro {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 34px;
     }
 
     .partner-intro h2 {
-      font-size: 36px;
+      margin: 0 0 12px;
+      font-size: 40px;
       color: #213D28;
-      line-height: 1.5;
+      letter-spacing: -0.02em;
+      line-height: 1.45;
     }
 
-    /* 🔥 핵심 박스 */
+    .partner-intro p {
+      margin: 0;
+      font-size: 18px;
+      color: #616761;
+      line-height: 1.8;
+    }
+
     .partner-board {
       background: #edf4ef;
       border: 1px solid #dfe8e2;
       border-radius: 22px;
       padding: 34px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
     }
 
     .partner-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 18px;
     }
 
-    /* 🔥 카드 */
     .partner-card {
-      background: #fff;
+      background: #ffffff;
+      border: 1px solid #dfe5e1;
       border-radius: 16px;
       overflow: hidden;
-      border: 1px solid #e2e8e3;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
       transition: all 0.25s ease;
       cursor: pointer;
     }
 
-    /* 🔥 hover 효과 */
     .partner-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 12px 28px rgba(0,0,0,0.12);
@@ -129,18 +163,22 @@
     }
 
     .partner-logo-area {
-      height: 140px;
+      height: 150px;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 20px;
+      background: #ffffff;
       border-bottom: 1px solid #edf1ee;
-      background: #fff;
     }
 
-    /* 🔥 로고 확대 */
     .partner-logo-area img {
-      max-width: 140px;
+      max-width: 150px;
       max-height: 70px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
       transition: transform 0.25s ease;
     }
 
@@ -157,111 +195,306 @@
       align-items: center;
       justify-content: center;
       color: #7a867d;
+      font-size: 14px;
       font-weight: 600;
+      letter-spacing: 0.02em;
     }
 
     .partner-name {
+      padding: 16px 14px;
       text-align: center;
-      padding: 14px;
-      font-size: 15px;
+      font-size: 16px;
       color: #485149;
+      line-height: 1.5;
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      word-break: keep-all;
     }
 
-    /* 🔥 more 카드 */
-    .more-card .partner-logo-area {
+    .partner-card.more-card .partner-logo-area {
       background: linear-gradient(135deg, #213D28, #335e42);
       color: white;
       flex-direction: column;
-    }
-
-    .more-card:hover {
-      transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 14px 30px rgba(33,61,40,0.25);
+      gap: 10px;
     }
 
     .more-dots {
       font-size: 40px;
+      font-weight: 800;
+      line-height: 1;
       letter-spacing: 6px;
     }
 
+    .more-text {
+      font-size: 16px;
+      font-weight: 700;
+      opacity: 0.92;
+    }
+
+    .partner-card.more-card .partner-name {
+      color: #213D28;
+      font-weight: 700;
+    }
+
+    .partner-card.more-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 14px 30px rgba(33,61,40,0.25);
+    }
+
+    .partner-guide {
+      margin-top: 26px;
+      background: #ffffff;
+      border: 1px solid #e2e8e3;
+      border-radius: 18px;
+      padding: 24px 26px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    }
+
+    .partner-guide h4 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      color: #213D28;
+    }
+
+    .partner-guide p {
+      margin: 0;
+      font-size: 16px;
+      color: #606661;
+      line-height: 1.8;
+    }
+
+    .partner-guide code {
+      background: #edf4ef;
+      color: #213D28;
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
     footer {
-      text-align: center;
-      padding: 26px;
-      font-size: 13px;
+      background: #ffffff;
       color: #9aa19c;
+      text-align: center;
+      padding: 26px 20px;
+      font-size: 13px;
       border-top: 1px solid #e4e8e5;
       margin-top: 40px;
+    }
+
+    @media (max-width: 1024px) {
+      .header {
+        padding: 22px 28px;
+        gap: 40px;
+      }
+
+      .top-menu {
+        gap: 28px;
+      }
+
+      .hero-inner,
+      .section {
+        padding-left: 28px;
+        padding-right: 28px;
+      }
+
+      .partner-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        padding: 18px 20px;
+        align-items: flex-start;
+        gap: 18px;
+        flex-direction: column;
+      }
+
+      .header-logo img {
+        width: 140px;
+      }
+
+      .top-menu {
+        gap: 12px 18px;
+        justify-content: flex-start;
+      }
+
+      .top-menu a {
+        font-size: 15px;
+      }
+
+      .hero-inner,
+      .section {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .hero {
+        min-height: 360px;
+        background-position: center right;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .partner-intro h2 {
+        font-size: 30px;
+      }
+
+      .partner-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .partner-board {
+        padding: 20px;
+      }
     }
   </style>
 </head>
 
 <body>
+  <header class="header">
+    <a href="index.html" class="header-logo">
+      <img src="logo.png" alt="와이텍 로고" />
+    </a>
 
-<header class="header">
-  <a href="index.html" class="header-logo">
-    <img src="logo.png">
-  </a>
+    <nav class="top-menu">
+      <a href="company.html">회사소개</a>
+      <a href="business.html">비즈니스</a>
+      <a href="client-partner.html" class="active">고객 · 파트너</a>
+      <a href="recruit.html">채용</a>
+      <a href="location.html">회사위치</a>
+    </nav>
+  </header>
 
-  <nav class="top-menu">
-    <a href="company.html">회사소개</a>
-    <a href="business.html">비즈니스</a>
-    <a href="client-partner.html" class="active">고객 · 파트너</a>
-    <a href="recruit.html">채용</a>
-    <a href="location.html">회사위치</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <div class="hero-inner">
-    <h1>Client · Partner</h1>
-  </div>
-</section>
-
-<section class="section">
-  <div class="section-inner">
-
-    <div class="info-box">
-      <h3>와이텍은 글로벌 벤더의 파트너로서 고객의 신뢰를 바탕으로 성장합니다.</h3>
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Client · Partner</h1>
+      <p></p>
     </div>
+  </section>
 
-    <div class="partner-intro">
-      <h2>
-        고객 맞춤형 IT서비스를 제공하기 위하여<br>
-        국내·외 벤더 및 우수한 파트너들과 함께 합니다.
-      </h2>
-    </div>
+  <section class="section">
+    <div class="section-inner">
 
-    <div class="partner-board">
-      <div class="partner-grid">
-
-        <!-- 반복 -->
-        <div class="partner-card">
-          <div class="partner-logo-area">
-            <div class="partner-placeholder">LOGO</div>
-          </div>
-          <div class="partner-name">회사명</div>
-        </div>
-
-        <!-- 동일하게 10개 넣으면 됨 -->
-
-        <!-- 🔥 more -->
-        <div class="partner-card more-card">
-          <div class="partner-logo-area">
-            <div class="more-dots">...</div>
-            <div>More</div>
-          </div>
-          <div class="partner-name">To be continued</div>
-        </div>
-
+      <div class="partner-intro">
+        <h2>고객 맞춤형 IT서비스를 제공하기 위하여<br>국내·외 벤더 및 우수한 파트너들과 함께 합니다.</h2>
+        <p>와이텍의 고객 및 파트너 네트워크를 소개합니다.</p>
       </div>
+
+      <div class="partner-board">
+        <div class="partner-grid">
+
+          <div class="partner-card">
+            <div class="partner-logo-area">
+              <div class="partner-placeholder">LOGO 01</div>
+            </div>
+            <div class="partner-name">회사명 01</div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo-area">
+              <div class="partner-placeholder">LOGO 02</div>
+            </div>
+            <div class="partner-name">회사명 02</div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo-area">
+              <div class="partner-placeholder">LOGO 03</div>
+            </div>
+            <div class="partner-name">회사명 03</div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo-area">
+              <div class="partner-placeholder">LOGO 04</div>
+            </div>
+            <div class="partner-name">회사명 04</div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo-area">
+              <div class="partner-placeholder">LOGO 05</div>
+            </div>
+            <div class="partner-name">회사명 05</div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo-area">
+              <div class="partner-placeholder">LOGO 06</div>
+            </div>
+            <div class="partner-name">회사명 06</div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo-area">
+              <div class="partner-placeholder">LOGO 07</div>
+            </div>
+            <div class="partner-name">회사명 07</div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo-area">
+              <div class="partner-placeholder">LOGO 08</div>
+            </div>
+            <div class="partner-name">회사명 08</div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo-area">
+              <div class="partner-placeholder">LOGO 09</div>
+            </div>
+            <div class="partner-name">회사명 09</div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo-area">
+              <div class="partner-placeholder">LOGO 10</div>
+            </div>
+            <div class="partner-name">회사명 10</div>
+          </div>
+
+          <div class="partner-card more-card">
+            <div class="partner-logo-area">
+              <div class="more-dots">...</div>
+              <div class="more-text">More</div>
+            </div>
+            <div class="partner-name">To be continued</div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo-area">
+              <div class="partner-placeholder">LOGO 12</div>
+            </div>
+            <div class="partner-name">회사명 12</div>
+          </div>
+
+        </div>
+
+        <div class="partner-guide">
+          <h4>로고 추가 방법</h4>
+          <p>
+            나중에 이미지를 넣을 때는 <code>&lt;div class="partner-placeholder"&gt;LOGO 01&lt;/div&gt;</code> 부분을 지우고,
+            같은 위치에 <code>&lt;img src="파일명.png" alt="회사명 로고"&gt;</code> 형태로 바꾸면 됩니다.
+            아래 예시처럼 적용하면 바로 표시됩니다.<br><br>
+            예시: <code>&lt;img src="vmware.png" alt="VMware 로고"&gt;</code>
+          </p>
+        </div>
+      </div>
+
     </div>
+  </section>
 
-  </div>
-</section>
-
-<footer>
-  COPYRIGHT © 2026 Y-TEC ALL RIGHTS RESERVED.
-</footer>
-
+  <footer>
+    <p>COPYRIGHT © 2026 Y-TEC ALL RIGHTS RESERVED.</p>
+  </footer>
 </body>
 </html>
