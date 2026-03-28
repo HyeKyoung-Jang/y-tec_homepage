@@ -182,12 +182,6 @@
       line-height: 1.7;
     }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 28px;
-    }
-
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -328,7 +322,7 @@
     }
 
     .infra-single {
-      max-width: 780px;
+      max-width: 1080px;
     }
 
     .migration-step {
@@ -372,6 +366,11 @@
       margin-top: 34px;
     }
 
+    .image-block.centered {
+      display: flex;
+      justify-content: center;
+    }
+
     .image-frame {
       background: #edf4ef;
       border: 1px solid #dfe8e2;
@@ -405,6 +404,8 @@
       grid-template-columns: 1fr;
       gap: 22px;
       max-width: 920px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .solution-gallery .image-frame {
@@ -437,7 +438,6 @@
         padding-right: 28px;
       }
 
-      .grid-2,
       .support-layout {
         grid-template-columns: 1fr;
       }
@@ -634,7 +634,7 @@
           </div>
         </div>
 
-        <div class="image-block">
+        <div class="image-block centered">
           <div class="image-frame small">
             <img src="consulting.png" alt="컨설팅 이미지">
           </div>
@@ -692,7 +692,7 @@
           </div>
         </div>
 
-        <div class="image-block">
+        <div class="image-block centered">
           <div class="image-frame small">
             <img src="infra.png" alt="인프라 구축 이미지">
           </div>
