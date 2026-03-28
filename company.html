@@ -187,22 +187,6 @@
       line-height:1.7;
     }
 
-    .sub-kicker{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      margin-bottom:28px;
-      color:#213D28;
-      font-weight:800;
-      font-size:18px;
-      letter-spacing:-0.02em;
-    }
-
-    .sub-kicker span:first-child{
-      font-size:28px;
-      font-weight:900;
-    }
-
     .card{
       background:#ffffff;
       border:1px solid #e5ebe6;
@@ -237,7 +221,7 @@
       display:grid;
       grid-template-columns:repeat(3,minmax(0,1fr));
       gap:24px;
-      margin-bottom:42px;
+      margin-bottom:80px;
     }
 
     .intro-feature-box{
@@ -379,115 +363,89 @@
     }
 
     /* organization */
-    .org-diagram-wrap{
-      background:#ffffff;
-      border:1px solid #e5ebe6;
-      border-radius:18px;
-      padding:34px 26px;
-      box-shadow:0 8px 24px rgba(0,0,0,0.05);
-      overflow-x:auto;
-    }
-
-    .org-chart{
-      min-width:1080px;
-      position:relative;
-    }
-
-    .org-ceo{
-      width:180px;
-      margin:0 auto 30px;
-      border-radius:18px;
-      border:2px solid #3b5b94;
-      background:linear-gradient(180deg,#f7f7f7 0%, #ebebeb 100%);
-      box-shadow:0 8px 16px rgba(0,0,0,0.10) inset;
+    .org-clean{
+      margin-top:40px;
       text-align:center;
-      padding:16px 12px 14px;
     }
 
-    .org-ceo-icon{
-      font-size:42px;
-      line-height:1;
-      color:#9c9c9c;
-      margin-bottom:8px;
-    }
-
-    .org-ceo-title{
+    .org-ceo-box{
+      display:inline-block;
+      padding:14px 34px;
+      border-radius:28px;
+      background:#4b3a6f;
+      color:#fff;
+      font-weight:700;
       font-size:18px;
-      font-weight:800;
-      color:#222;
+      margin-bottom:0;
+      min-width:200px;
     }
 
-    .org-main-line{
+    .org-line{
       width:2px;
-      height:34px;
-      background:#b9b9b9;
+      height:40px;
+      background:#ccc;
       margin:0 auto;
     }
 
-    .org-horizontal-line{
-      width:560px;
+    .org-horizontal{
+      width:80%;
       height:2px;
-      background:#b9b9b9;
-      margin:0 auto 0;
+      background:#ccc;
+      margin:0 auto 40px;
     }
 
-    .org-columns{
-      margin-top:0;
+    .org-grid{
       display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:12px;
-      position:relative;
+      grid-template-columns:1fr 1fr 2.3fr 1fr;
+      gap:24px;
+      align-items:start;
+      text-align:left;
     }
 
-    .org-column{
-      background:#f1f1f1;
-      padding:14px 10px 8px;
-      min-height:520px;
-      position:relative;
+    .org-card{
+      background:#f5f5f5;
+      padding:14px;
     }
 
-    .org-column::before{
-      content:"";
-      position:absolute;
-      top:-52px;
-      left:50%;
-      transform:translateX(-50%);
-      width:2px;
-      height:52px;
-      background:#b9b9b9;
-    }
-
-    .org-head{
-      background:#8e8e8e;
+    .org-title{
+      background:#4a4a4a;
       color:#fff;
-      text-align:center;
-      font-size:18px;
+      padding:14px 12px;
       font-weight:700;
-      padding:14px 10px;
-      margin-bottom:8px;
+      font-size:18px;
+      text-align:center;
+      margin-bottom:10px;
     }
 
     .org-sub{
-      background:#c2c0c0;
-      color:#333;
-      text-align:center;
-      font-size:18px;
+      background:#9b9b9b;
+      color:#fff;
       padding:12px 10px;
-      margin-bottom:4px;
+      margin-bottom:8px;
+      text-align:center;
+      font-size:17px;
+      font-weight:700;
     }
 
-    .org-box{
-      background:#f7f7f7;
-      border:1px solid #c9c9c9;
-      color:#3b3b3b;
+    .org-item{
+      background:#fff;
+      border:1px solid #ddd;
+      padding:12px 10px;
+      margin-bottom:8px;
       text-align:center;
       font-size:16px;
-      padding:12px 10px;
-      margin-bottom:4px;
-      min-height:46px;
+      color:#444;
+      min-height:48px;
       display:flex;
       align-items:center;
       justify-content:center;
+      word-break:keep-all;
+    }
+
+    .org-split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
     }
 
     .org-guide{
@@ -495,6 +453,7 @@
       font-size:15px;
       color:#687067;
       line-height:1.7;
+      text-align:left;
     }
 
     /* history */
@@ -559,7 +518,6 @@
       line-height:1.7;
     }
 
-    /* footer */
     footer{
       background:#ffffff;
       color:#9aa19c;
@@ -877,48 +835,55 @@
           <p>Organization Chart</p>
         </div>
 
-        <div class="org-diagram-wrap">
-          <div class="org-chart">
-            <div class="org-ceo">
-              <div class="org-ceo-icon">👤</div>
-              <div class="org-ceo-title">대표이사</div>
+        <div class="org-clean">
+          <div class="org-ceo-box">대표이사</div>
+          <div class="org-line"></div>
+          <div class="org-horizontal"></div>
+
+          <div class="org-grid">
+
+            <div class="org-card">
+              <div class="org-title">경영관리</div>
+              <div class="org-item">재무관리</div>
+              <div class="org-item">인사/총무</div>
+              <div class="org-item">영업지원</div>
+              <div class="org-item">마케팅</div>
             </div>
 
-            <div class="org-main-line"></div>
-            <div class="org-horizontal-line"></div>
+            <div class="org-card">
+              <div class="org-title">인프라영업팀</div>
+              <div class="org-item">프리세일즈</div>
+              <div class="org-item">기술영업</div>
+              <div class="org-item">수행관리</div>
+            </div>
 
-            <div class="org-columns">
-              <div class="org-column">
-                <div class="org-head">인프라사업본부</div>
-                <div class="org-sub">영업팀</div>
-                <div class="org-box">프리세일즈</div>
-                <div class="org-box">기술영업</div>
-                <div class="org-box">사업지원팀</div>
-                <div class="org-box">프로젝트 관리</div>
-                <div class="org-box">견적지원</div>
-              </div>
+            <div class="org-card">
+              <div class="org-title">인프라사업팀</div>
 
-              <div class="org-column">
-                <div class="org-head">인프라기술본부</div>
-                <div class="org-sub">기술팀</div>
-                <div class="org-box">솔루션</div>
-                <div class="org-box">인프라기술</div>
-              </div>
+              <div class="org-split">
+                <div>
+                  <div class="org-sub">인프라 기술 파트</div>
+                  <div class="org-item">인프라기술</div>
+                  <div class="org-item">가상화기술</div>
+                  <div class="org-item">유지보수/운영</div>
+                  <div class="org-item">성능관리/컨설팅</div>
+                </div>
 
-              <div class="org-column">
-                <div class="org-head">경영관리본부</div>
-                <div class="org-sub">재무관리</div>
-                <div class="org-box">인사</div>
-                <div class="org-box">총무</div>
-                <div class="org-box">영업지원</div>
-              </div>
-
-              <div class="org-column">
-                <div class="org-head">기획팀</div>
-                <div class="org-sub">기획</div>
-                <div class="org-box">마케팅</div>
+                <div>
+                  <div class="org-sub">솔루션 파트</div>
+                  <div class="org-item">개발/기술 지원</div>
+                  <div class="org-item">DBMS 기술</div>
+                  <div class="org-item">유지보수/운영</div>
+                </div>
               </div>
             </div>
+
+            <div class="org-card">
+              <div class="org-title">기업부설연구소</div>
+              <div class="org-item">솔루션 개발</div>
+              <div class="org-item">정부과제사업</div>
+            </div>
+
           </div>
 
           <div class="org-guide">
