@@ -4,522 +4,734 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>와이텍 | 회사소개</title>
-
-<link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="icon" type="image/png" href="./favicon.png">
 
   <style>
-    * {
-      box-sizing: border-box;
+    *{
+      box-sizing:border-box;
     }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f8f7;
-      color: #222;
+    html,body{
+      margin:0;
+      padding:0;
+      font-family:Arial,sans-serif;
+      background:#f7f8f7;
+      color:#222;
     }
 
-    a {
-      text-decoration: none;
+    body{
+      overflow-x:hidden;
     }
 
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      width: 100%;
-      padding: 22px 56px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 70px;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(33,61,40,0.08);
+    a{
+      text-decoration:none;
     }
 
-    .header-logo img {
-      width: 170px;
-      max-width: 100%;
-      height: auto;
-      display: block;
+    .header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      width:100%;
+      padding:22px 56px;
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      gap:70px;
+      background:rgba(255,255,255,0.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(33,61,40,0.08);
     }
 
-    .top-menu {
-      display: flex;
-      align-items: center;
-      gap: 52px;
-      flex-wrap: wrap;
+    .header-logo img{
+      width:170px;
+      max-width:100%;
+      height:auto;
+      display:block;
     }
 
-    .top-menu a {
-      color: #213D28;
-      font-size: 18px;
-      font-weight: 500;
-      letter-spacing: -0.01em;
+    .top-menu{
+      display:flex;
+      align-items:center;
+      gap:52px;
+      flex-wrap:wrap;
+    }
+
+    .top-menu a{
+      position:relative;
+      color:#213D28;
+      font-size:18px;
+      font-weight:500;
+      letter-spacing:-0.01em;
     }
 
     .top-menu a:hover,
-    .top-menu a.active {
-      color: #213D28;
-      font-weight: 700;
+    .top-menu a.active{
+      color:#213D28;
+      font-weight:700;
     }
 
-    .hero {
-      position: relative;
-      width: 100%;
-      min-height: 420px;
+    .hero{
+      position:relative;
+      width:100%;
+      min-height:380px;
       background:
-        linear-gradient(90deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.55) 45%, rgba(255,255,255,0.18) 100%),
+        linear-gradient(90deg, rgba(255,255,255,0.90) 0%, rgba(255,255,255,0.58) 44%, rgba(255,255,255,0.14) 100%),
         url('company.png') no-repeat right center / cover;
-      display: flex;
-      align-items: center;
+      display:flex;
+      align-items:center;
     }
 
-    .hero-inner {
-      max-width: 1320px;
-      margin: 0 auto;
-      width: 100%;
-      padding: 90px 56px;
+    .hero-inner{
+      max-width:1320px;
+      margin:0 auto;
+      width:100%;
+      padding:86px 56px;
     }
 
-    .hero h1 {
-      margin: 0 0 18px;
-      font-size: 58px;
-      color: #213D28;
-      letter-spacing: -0.03em;
+    .hero h1{
+      margin:0 0 14px;
+      font-size:58px;
+      color:#213D28;
+      letter-spacing:-0.03em;
     }
 
-    .hero p {
-      margin: 0;
-      max-width: 620px;
-      font-size: 22px;
-      line-height: 1.65;
-      color: #415146;
-      font-weight: 500;
+    .hero p{
+      margin:0;
+      max-width:680px;
+      font-size:21px;
+      line-height:1.7;
+      color:#415146;
+      font-weight:500;
     }
 
-    .company-nav-wrap {
-      background: #ffffff;
-      border-bottom: 1px solid #e4ebe5;
+    .company-nav-wrap{
+      background:#ffffff;
+      border-bottom:1px solid #e4ebe5;
     }
 
-    .company-nav {
-      max-width: 1320px;
-      margin: 0 auto;
-      padding: 0 56px;
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
+    .company-nav{
+      max-width:1320px;
+      margin:0 auto;
+      padding:0 56px;
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
     }
 
-    .company-tab {
-      border: none;
-      background: transparent;
-      padding: 20px 18px;
-      font-size: 17px;
-      font-weight: 600;
-      color: #667067;
-      cursor: pointer;
-      border-bottom: 3px solid transparent;
-      transition: 0.2s ease;
+    .company-tab{
+      border:none;
+      background:transparent;
+      padding:20px 18px;
+      font-size:17px;
+      font-weight:600;
+      color:#667067;
+      cursor:pointer;
+      border-bottom:3px solid transparent;
+      transition:0.2s ease;
     }
 
-    .company-tab:hover {
-      color: #213D28;
+    .company-tab:hover{
+      color:#213D28;
     }
 
-    .company-tab.active {
-      color: #213D28;
-      border-bottom-color: #213D28;
+    .company-tab.active{
+      color:#213D28;
+      border-bottom-color:#213D28;
     }
 
-    .section {
-      padding: 80px 56px 90px;
+    .section{
+      padding:76px 56px 90px;
     }
 
-    .section-inner {
-      max-width: 1320px;
-      margin: 0 auto;
+    .section-inner{
+      max-width:1320px;
+      margin:0 auto;
     }
 
-    .panel {
-      display: none;
-      animation: fadeIn 0.35s ease;
+    .panel{
+      display:none;
+      animation:fadeIn 0.35s ease;
     }
 
-    .panel.active {
-      display: block;
+    .panel.active{
+      display:block;
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(8px);
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(8px);
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .section-head {
-      margin-bottom: 34px;
-    }
-
-    .section-head h2 {
-      margin: 0 0 12px;
-      font-size: 42px;
-      color: #213D28;
-      letter-spacing: -0.02em;
-    }
-
-    .section-head p {
-      margin: 0;
-      font-size: 18px;
-      color: #616761;
-      line-height: 1.7;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 28px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px;
-    }
-
-    .card {
-      background: #ffffff;
-      border: 1px solid #e5ebe6;
-      border-radius: 18px;
-      padding: 32px 28px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-    }
-
-    .card h3 {
-      margin: 0 0 14px;
-      font-size: 28px;
-      color: #213D28;
-      letter-spacing: -0.02em;
-    }
-
-    .card p {
-      margin: 0;
-      font-size: 17px;
-      line-height: 1.8;
-      color: #5c625d;
-    }
-
-    .tag {
-      display: inline-block;
-      margin-bottom: 14px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: #edf4ef;
-      color: #213D28;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .intro-highlight {
-      background: linear-gradient(135deg, #213D28, #335e42);
-      color: white;
-      border: none;
-    }
-
-    .intro-highlight h3,
-    .intro-highlight p {
-      color: white;
-    }
-
-    .list-box {
-      display: grid;
-      gap: 16px;
-      margin-top: 10px;
-    }
-
-    .list-item {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      font-size: 17px;
-      color: #f1f7f2;
-      line-height: 1.7;
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      margin-top: 10px;
-      border-radius: 50%;
-      background: #cfe3d5;
-      flex: 0 0 auto;
-    }
-
-    .business-quick {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .quick-card {
-      background: #ffffff;
-      border: 1px solid #e2e8e3;
-      border-radius: 16px;
-      padding: 24px 20px;
-      text-align: left;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-    }
-
-    .quick-card h4 {
-      margin: 0 0 10px;
-      font-size: 20px;
-      color: #213D28;
-      letter-spacing: -0.02em;
-    }
-
-    .quick-card p {
-      margin: 0;
-      font-size: 15px;
-      color: #606661;
-      line-height: 1.7;
-    }
-
-    .org-wrap {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 28px;
-      align-items: stretch;
-    }
-
-    .org-diagram {
-      background: #ffffff;
-      border: 1px solid #e5ebe6;
-      border-radius: 18px;
-      padding: 30px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-    }
-
-    .org-top {
-      text-align: center;
-      margin-bottom: 28px;
-    }
-
-    .org-top .box {
-      display: inline-block;
-      min-width: 180px;
-      padding: 16px 22px;
-      border-radius: 12px;
-      background: #213D28;
-      color: #fff;
-      font-weight: 700;
-      font-size: 18px;
-    }
-
-    .org-row {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 18px;
-    }
-
-    .org-row .box {
-      padding: 18px 14px;
-      border-radius: 12px;
-      background: #edf4ef;
-      color: #213D28;
-      font-weight: 700;
-      text-align: center;
-      border: 1px solid #dce8df;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 18px;
-    }
-
-    .timeline-item {
-      background: #ffffff;
-      border: 1px solid #e2e8e3;
-      border-radius: 16px;
-      padding: 22px 24px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-      display: grid;
-      grid-template-columns: 110px 1fr;
-      gap: 18px;
-      align-items: start;
-    }
-
-    .timeline-year {
-      font-size: 24px;
-      font-weight: 800;
-      color: #213D28;
-      letter-spacing: -0.02em;
-    }
-
-    .timeline-content h4 {
-      margin: 0 0 8px;
-      font-size: 20px;
-      color: #213D28;
-    }
-
-    .timeline-content p {
-      margin: 0;
-      font-size: 16px;
-      color: #5f655f;
-      line-height: 1.7;
-    }
-
-    .cta-box {
-      background: linear-gradient(135deg, #213D28, #335e42);
-      color: white;
-      border-radius: 20px;
-      padding: 38px 34px;
-      margin-top: 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .cta-box h3 {
-      margin: 0 0 8px;
-      font-size: 30px;
-      color: white;
-    }
-
-    .cta-box p {
-      margin: 0;
-      font-size: 17px;
-      color: rgba(255,255,255,0.88);
-      line-height: 1.7;
-    }
-
-    .cta-box a {
-      display: inline-block;
-      padding: 14px 26px;
-      border-radius: 8px;
-      background: white;
-      color: #213D28;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    footer {
-      background: #213D28;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-      font-size: 15px;
-      margin-top: 40px;
-    }
-
-    @media (max-width: 1280px) {
-      .business-quick {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+      to{
+        opacity:1;
+        transform:translateY(0);
       }
     }
 
-    @media (max-width: 1024px) {
-      .header {
-        padding: 22px 28px;
-        gap: 40px;
+    .section-head{
+      margin-bottom:34px;
+      text-align:center;
+    }
+
+    .section-head h2{
+      margin:0 0 10px;
+      font-size:44px;
+      color:#213D28;
+      letter-spacing:-0.02em;
+    }
+
+    .section-head p{
+      margin:0;
+      font-size:18px;
+      color:#616761;
+      line-height:1.7;
+    }
+
+    .sub-kicker{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-bottom:28px;
+      color:#213D28;
+      font-weight:800;
+      font-size:18px;
+      letter-spacing:-0.02em;
+    }
+
+    .sub-kicker span:first-child{
+      font-size:28px;
+      font-weight:900;
+    }
+
+    .card{
+      background:#ffffff;
+      border:1px solid #e5ebe6;
+      border-radius:18px;
+      padding:32px 28px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.05);
+    }
+
+    /* intro */
+    .intro-message{
+      margin-bottom:30px;
+    }
+
+    .intro-topline{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-bottom:28px;
+      color:#365a3d;
+      font-weight:800;
+      font-size:19px;
+      letter-spacing:-0.02em;
+      flex-wrap:wrap;
+    }
+
+    .intro-topline .brand{
+      font-size:28px;
+      font-weight:900;
+    }
+
+    .intro-feature-row{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:24px;
+      margin-bottom:42px;
+    }
+
+    .intro-feature-box{
+      background:#2f6240;
+      color:#fff;
+      border-radius:22px;
+      min-height:114px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:24px 20px;
+      font-size:22px;
+      line-height:1.45;
+      letter-spacing:-0.03em;
+      box-shadow:0 10px 24px rgba(33,61,40,0.12);
+    }
+
+    .overview-wrap{
+      margin-top:10px;
+    }
+
+    .overview-table{
+      width:100%;
+      border-collapse:collapse;
+      background:#ffffff;
+      border-top:1px solid #6e756f;
+      border-bottom:1px solid #d9dfda;
+    }
+
+    .overview-table th,
+    .overview-table td{
+      padding:22px 24px;
+      border-bottom:1px solid #d9dfda;
+      font-size:17px;
+      line-height:1.5;
+      vertical-align:middle;
+    }
+
+    .overview-table th{
+      width:140px;
+      background:#234d31;
+      color:#fff;
+      font-size:18px;
+      font-weight:700;
+      text-align:center;
+      border-right:1px solid #d9dfda;
+      white-space:nowrap;
+    }
+
+    .overview-table td{
+      background:#ffffff;
+      color:#222;
+    }
+
+    /* vision */
+    .vision-layout{
+      display:grid;
+      grid-template-columns:480px 1fr;
+      gap:40px;
+      align-items:center;
+    }
+
+    .vision-image{
+      text-align:center;
+    }
+
+    .vision-image img{
+      max-width:100%;
+      height:auto;
+      display:block;
+      margin:0 auto;
+    }
+
+    .vision-list{
+      display:flex;
+      flex-direction:column;
+      gap:24px;
+    }
+
+    .vision-item{
+      position:relative;
+      display:grid;
+      grid-template-columns:215px 1fr 72px;
+      align-items:center;
+      min-height:96px;
+      background:#efefef;
+      box-shadow:0 6px 14px rgba(0,0,0,0.04);
+    }
+
+    .vision-left{
+      position:relative;
+      height:100%;
+      background:#234d31;
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:18px 20px;
+      font-size:20px;
+      font-weight:700;
+      line-height:1.45;
+      clip-path:polygon(0 0, 100% 0, 88% 100%, 0 100%);
+    }
+
+    .vision-main{
+      padding:0 28px 0 34px;
+    }
+
+    .vision-en{
+      display:block;
+      margin-bottom:4px;
+      color:#b7b7b7;
+      font-size:16px;
+      text-align:right;
+    }
+
+    .vision-ko{
+      display:block;
+      font-size:24px;
+      color:#111;
+      letter-spacing:-0.03em;
+      line-height:1.35;
+    }
+
+    .vision-letter{
+      width:54px;
+      height:54px;
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#dfe6dc;
+      color:#fff;
+      font-size:28px;
+      font-weight:800;
+      box-shadow:0 6px 12px rgba(0,0,0,0.10);
+    }
+
+    /* organization */
+    .org-diagram-wrap{
+      background:#ffffff;
+      border:1px solid #e5ebe6;
+      border-radius:18px;
+      padding:34px 26px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.05);
+      overflow-x:auto;
+    }
+
+    .org-chart{
+      min-width:1080px;
+      position:relative;
+    }
+
+    .org-ceo{
+      width:180px;
+      margin:0 auto 30px;
+      border-radius:18px;
+      border:2px solid #3b5b94;
+      background:linear-gradient(180deg,#f7f7f7 0%, #ebebeb 100%);
+      box-shadow:0 8px 16px rgba(0,0,0,0.10) inset;
+      text-align:center;
+      padding:16px 12px 14px;
+    }
+
+    .org-ceo-icon{
+      font-size:42px;
+      line-height:1;
+      color:#9c9c9c;
+      margin-bottom:8px;
+    }
+
+    .org-ceo-title{
+      font-size:18px;
+      font-weight:800;
+      color:#222;
+    }
+
+    .org-main-line{
+      width:2px;
+      height:34px;
+      background:#b9b9b9;
+      margin:0 auto;
+    }
+
+    .org-horizontal-line{
+      width:560px;
+      height:2px;
+      background:#b9b9b9;
+      margin:0 auto 0;
+    }
+
+    .org-columns{
+      margin-top:0;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+      position:relative;
+    }
+
+    .org-column{
+      background:#f1f1f1;
+      padding:14px 10px 8px;
+      min-height:520px;
+      position:relative;
+    }
+
+    .org-column::before{
+      content:"";
+      position:absolute;
+      top:-52px;
+      left:50%;
+      transform:translateX(-50%);
+      width:2px;
+      height:52px;
+      background:#b9b9b9;
+    }
+
+    .org-head{
+      background:#8e8e8e;
+      color:#fff;
+      text-align:center;
+      font-size:18px;
+      font-weight:700;
+      padding:14px 10px;
+      margin-bottom:8px;
+    }
+
+    .org-sub{
+      background:#c2c0c0;
+      color:#333;
+      text-align:center;
+      font-size:18px;
+      padding:12px 10px;
+      margin-bottom:4px;
+    }
+
+    .org-box{
+      background:#f7f7f7;
+      border:1px solid #c9c9c9;
+      color:#3b3b3b;
+      text-align:center;
+      font-size:16px;
+      padding:12px 10px;
+      margin-bottom:4px;
+      min-height:46px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .org-guide{
+      margin-top:22px;
+      font-size:15px;
+      color:#687067;
+      line-height:1.7;
+    }
+
+    /* history */
+    .timeline{
+      display:grid;
+      gap:18px;
+    }
+
+    .timeline-item{
+      background:#ffffff;
+      border:1px solid #e2e8e3;
+      border-radius:18px;
+      padding:0;
+      box-shadow:0 6px 18px rgba(0,0,0,0.04);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:130px 1fr;
+    }
+
+    .timeline-year{
+      padding:28px 24px;
+      font-size:22px;
+      font-weight:900;
+      color:#213D28;
+      background:#fbfcfb;
+      letter-spacing:-0.02em;
+    }
+
+    .timeline-content{
+      padding:18px 24px;
+      display:grid;
+      gap:12px;
+    }
+
+    .timeline-row{
+      display:grid;
+      grid-template-columns:64px 1fr;
+      gap:14px;
+      align-items:start;
+    }
+
+    .timeline-month{
+      font-size:17px;
+      font-weight:800;
+      color:#213D28;
+      white-space:nowrap;
+      line-height:1.8;
+    }
+
+    .timeline-text{
+      font-size:17px;
+      color:#243129;
+      line-height:1.8;
+      word-break:keep-all;
+    }
+
+    .timeline-text .sub{
+      display:block;
+      margin-top:2px;
+      font-size:15px;
+      color:#667067;
+      line-height:1.7;
+    }
+
+    /* footer */
+    footer{
+      background:#ffffff;
+      color:#9aa19c;
+      text-align:center;
+      padding:38px 20px;
+      font-size:13px;
+      border-top:1px solid #e4e8e5;
+      margin-top:60px;
+    }
+
+    @media (max-width:1280px){
+      .vision-layout{
+        grid-template-columns:1fr;
       }
 
-      .top-menu {
-        gap: 28px;
+      .vision-image{
+        max-width:520px;
+        margin:0 auto;
+      }
+    }
+
+    @media (max-width:1024px){
+      .header{
+        padding:22px 28px;
+        gap:40px;
+      }
+
+      .top-menu{
+        gap:28px;
       }
 
       .hero-inner,
       .section,
-      .company-nav {
-        padding-left: 28px;
-        padding-right: 28px;
+      .company-nav{
+        padding-left:28px;
+        padding-right:28px;
       }
 
-      .grid-2,
-      .org-wrap {
-        grid-template-columns: 1fr;
+      .intro-feature-row{
+        grid-template-columns:1fr;
       }
 
-      .business-quick {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .overview-table th,
+      .overview-table td{
+        padding:18px 16px;
+      }
+
+      .vision-item{
+        grid-template-columns:180px 1fr 60px;
+      }
+
+      .vision-left{
+        font-size:18px;
+      }
+
+      .vision-ko{
+        font-size:22px;
       }
     }
 
-    @media (max-width: 768px) {
-      .header {
-        padding: 18px 20px;
-        align-items: flex-start;
-        gap: 18px;
-        flex-direction: column;
+    @media (max-width:768px){
+      .header{
+        padding:18px 20px;
+        align-items:flex-start;
+        gap:18px;
+        flex-direction:column;
       }
 
-      .header-logo img {
-        width: 140px;
+      .header-logo img{
+        width:140px;
       }
 
-      .top-menu {
-        gap: 12px 18px;
-        justify-content: flex-start;
+      .top-menu{
+        gap:12px 18px;
+        justify-content:flex-start;
       }
 
-      .top-menu a {
-        font-size: 15px;
+      .top-menu a{
+        font-size:15px;
       }
 
       .hero-inner,
       .section,
-      .company-nav {
-        padding-left: 20px;
-        padding-right: 20px;
+      .company-nav{
+        padding-left:20px;
+        padding-right:20px;
       }
 
-      .hero {
-        min-height: 360px;
-        background-position: center right;
+      .hero{
+        min-height:320px;
+        background-position:center right;
       }
 
-      .hero h1 {
-        font-size: 38px;
+      .hero h1{
+        font-size:40px;
       }
 
-      .hero p {
-        font-size: 18px;
+      .hero p{
+        font-size:18px;
       }
 
-      .section-head h2 {
-        font-size: 32px;
+      .section-head h2{
+        font-size:34px;
       }
 
-      .grid-3,
-      .business-quick {
-        grid-template-columns: 1fr;
+      .company-tab{
+        padding:16px 12px;
+        font-size:15px;
       }
 
-      .org-row {
-        grid-template-columns: 1fr;
+      .intro-topline{
+        font-size:16px;
       }
 
-      .timeline-item {
-        grid-template-columns: 1fr;
-        gap: 10px;
+      .intro-topline .brand{
+        font-size:24px;
       }
 
-      .timeline-year {
-        font-size: 22px;
+      .intro-feature-box{
+        font-size:18px;
+        min-height:96px;
       }
 
-      .company-tab {
-        padding: 16px 12px;
-        font-size: 15px;
+      .overview-table,
+      .overview-table tbody,
+      .overview-table tr,
+      .overview-table th,
+      .overview-table td{
+        display:block;
+        width:100%;
+      }
+
+      .overview-table tr{
+        margin-bottom:14px;
+        border-bottom:1px solid #d9dfda;
+      }
+
+      .overview-table th{
+        border-right:none;
+      }
+
+      .vision-item{
+        grid-template-columns:1fr;
+      }
+
+      .vision-left{
+        clip-path:none;
+        min-height:88px;
+      }
+
+      .vision-main{
+        padding:18px 20px;
+      }
+
+      .vision-en{
+        text-align:left;
+      }
+
+      .vision-letter{
+        margin:0 20px 18px auto;
+      }
+
+      .timeline-item{
+        grid-template-columns:1fr;
+      }
+
+      .timeline-year{
+        padding-bottom:8px;
+      }
+
+      .timeline-content{
+        padding-top:0;
       }
     }
   </style>
@@ -558,58 +770,102 @@
 
   <section class="section">
     <div class="section-inner">
+
       <!-- 와이텍 -->
       <div class="panel active" id="intro">
-        <div class="section-head">
-          <h2>와이텍</h2>
-          <p>고객 환경에 맞는 IT 인프라와 솔루션을 제안하고, 안정적인 운영 체계를 함께 만들어가는 기술 파트너를 지향합니다.</p>
+        <div class="intro-message">
+          <div class="intro-topline">
+            <span class="brand">Y-TEC</span>
+            <span>신뢰할 수 있는 파트너</span>
+          </div>
+
+          <div class="intro-feature-row">
+            <div class="intro-feature-box">고객 환경에 적합한<br>실무중심 제안</div>
+            <div class="intro-feature-box">인프라 구축 이후<br>운영까지 고려한 서비스</div>
+            <div class="intro-feature-box">안정성과 효율성까지<br>고려한 기술지원</div>
+          </div>
         </div>
 
-        <div class="grid-2">
-          <div class="card intro-highlight">
-            <span class="tag" style="background: rgba(255,255,255,0.16); color: white;">회사소개</span>
-            <h3>신뢰할 수 있는 IT 파트너</h3>
-            <p>와이텍은 기업 IT 환경에 필요한 인프라 구축, 솔루션 도입, 운영 안정화, 유지보수까지 고객의 업무 흐름에 맞춘 서비스를 제공합니다.</p>
+        <div class="section-head">
+          <h2>회사개요</h2>
+          <p>Company Overview</p>
+        </div>
 
-            <div class="list-box">
-              <div class="list-item"><span class="dot"></span><span>고객 환경 중심의 실무형 제안</span></div>
-              <div class="list-item"><span class="dot"></span><span>구축 이후 운영까지 고려한 서비스</span></div>
-              <div class="list-item"><span class="dot"></span><span>안정성과 효율성을 함께 보는 기술 지원</span></div>
-            </div>
-          </div>
-
-          <div class="card">
-            <span class="tag">핵심 가치</span>
-            <h3>기술과 운영을 연결하는 기업</h3>
-            <p>단순한 시스템 도입을 넘어, 실제 운영 환경에서 고객이 안정적이고 효율적으로 업무를 수행할 수 있도록 지속 가능한 IT 기반을 제공합니다.</p>
-          </div>
+        <div class="overview-wrap">
+          <table class="overview-table">
+            <tbody>
+              <tr>
+                <th>회사명</th>
+                <td>주식회사 와이텍</td>
+              </tr>
+              <tr>
+                <th>설립일</th>
+                <td>2023.02.06</td>
+              </tr>
+              <tr>
+                <th>대표이사</th>
+                <td>김진수</td>
+              </tr>
+              <tr>
+                <th>E-MAIL</th>
+                <td>office@y-tec.co.kr</td>
+              </tr>
+              <tr>
+                <th>사업부문</th>
+                <td>솔루션 최적화 / 가상화 솔루션 / 컨설팅 서비스 / 인프라시스템 구축 / 통합유지보수 외</td>
+              </tr>
+              <tr>
+                <th>주소</th>
+                <td>경기도 과천시 과천대로 7길 65 B동 605호</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
       <!-- 경영비전 -->
       <div class="panel" id="vision">
-        <div class="section-head">
-          <h2>경영비전</h2>
-          <p>기술의 실효성과 운영의 안정성을 기반으로, 고객에게 지속 가능한 IT 환경을 제공하는 것을 목표로 합니다.</p>
-        </div>
-
-        <div class="grid-3">
-          <div class="card">
-            <span class="tag">VISION 01</span>
-            <h3>안정성</h3>
-            <p>고객 업무에 차질이 없도록 안정적인 시스템 환경과 운영 체계를 우선으로 생각합니다.</p>
+        <div class="vision-layout">
+          <div class="vision-image">
+            <img src="vision.png" alt="경영비전 이미지">
           </div>
 
-          <div class="card">
-            <span class="tag">VISION 02</span>
-            <h3>효율성</h3>
-            <p>불필요한 복잡성을 줄이고, 실제 업무 현장에서 효율이 높아지는 방향을 제안합니다.</p>
-          </div>
+          <div class="vision-list">
+            <div class="vision-item">
+              <div class="vision-left">고객을 우선으로<br>생각하는 기업</div>
+              <div class="vision-main">
+                <span class="vision-en">Your technology partner</span>
+                <span class="vision-ko">당신의 파트너 와이텍</span>
+              </div>
+              <div class="vision-letter">Y</div>
+            </div>
 
-          <div class="card">
-            <span class="tag">VISION 03</span>
-            <h3>지속성</h3>
-            <p>도입 이후에도 장기적으로 활용 가능한 구조와 서비스 품질을 지향합니다.</p>
+            <div class="vision-item">
+              <div class="vision-left">끊임없이<br>도전하는 기업</div>
+              <div class="vision-main">
+                <span class="vision-en">Transforming possibilities</span>
+                <span class="vision-ko">끊임 없는 도전으로</span>
+              </div>
+              <div class="vision-letter">T</div>
+            </div>
+
+            <div class="vision-item">
+              <div class="vision-left">전문 분야에서<br>최고가 되는 기업</div>
+              <div class="vision-main">
+                <span class="vision-en">Elevating experiences</span>
+                <span class="vision-ko">멈추지 않는 발전으로</span>
+              </div>
+              <div class="vision-letter">E</div>
+            </div>
+
+            <div class="vision-item">
+              <div class="vision-left">가치를<br>창조하는 기업</div>
+              <div class="vision-main">
+                <span class="vision-en">Connecting future</span>
+                <span class="vision-ko">미래를 연결합니다</span>
+              </div>
+              <div class="vision-letter">C</div>
+            </div>
           </div>
         </div>
       </div>
@@ -618,26 +874,55 @@
       <div class="panel" id="organization">
         <div class="section-head">
           <h2>조직구성</h2>
-          <p>실제 조직도에 맞춰 추후 수정할 수 있도록 임시 구조로 구성해둔 영역입니다.</p>
+          <p>Organization Chart</p>
         </div>
 
-        <div class="org-wrap">
-          <div class="org-diagram">
-            <div class="org-top">
-              <div class="box">대표이사</div>
+        <div class="org-diagram-wrap">
+          <div class="org-chart">
+            <div class="org-ceo">
+              <div class="org-ceo-icon">👤</div>
+              <div class="org-ceo-title">대표이사</div>
             </div>
 
-            <div class="org-row">
-              <div class="box">사업부</div>
-              <div class="box">기술지원부</div>
-              <div class="box">관리부</div>
+            <div class="org-main-line"></div>
+            <div class="org-horizontal-line"></div>
+
+            <div class="org-columns">
+              <div class="org-column">
+                <div class="org-head">인프라사업본부</div>
+                <div class="org-sub">영업팀</div>
+                <div class="org-box">프리세일즈</div>
+                <div class="org-box">기술영업</div>
+                <div class="org-box">사업지원팀</div>
+                <div class="org-box">프로젝트 관리</div>
+                <div class="org-box">견적지원</div>
+              </div>
+
+              <div class="org-column">
+                <div class="org-head">인프라기술본부</div>
+                <div class="org-sub">기술팀</div>
+                <div class="org-box">솔루션</div>
+                <div class="org-box">인프라기술</div>
+              </div>
+
+              <div class="org-column">
+                <div class="org-head">경영관리본부</div>
+                <div class="org-sub">재무관리</div>
+                <div class="org-box">인사</div>
+                <div class="org-box">총무</div>
+                <div class="org-box">영업지원</div>
+              </div>
+
+              <div class="org-column">
+                <div class="org-head">기획팀</div>
+                <div class="org-sub">기획</div>
+                <div class="org-box">마케팅</div>
+              </div>
             </div>
           </div>
 
-          <div class="card">
-            <span class="tag">조직구성 안내</span>
-            <h3>셀프 수정 가능한 구조</h3>
-            <p>현재는 임시 예시 조직도로 구성되어 있으며, 실제 부서명과 역할에 맞게 직접 수정할 수 있도록 단순한 구조로 제작했습니다.</p>
+          <div class="org-guide">
+            조직도 내 텍스트는 각 박스의 내용만 직접 수정하면 바로 반영되도록 단순한 구조로 제작했습니다.
           </div>
         </div>
       </div>
@@ -653,44 +938,64 @@
           <div class="timeline-item">
             <div class="timeline-year">2026</div>
             <div class="timeline-content">
-              <h4></h4>
-              <p></p>
+              <div class="timeline-row">
+                <div class="timeline-month">00월</div>
+                <div class="timeline-text">내용 입력 예정</div>
+              </div>
             </div>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-year">2025</div>
             <div class="timeline-content">
-              <h4>07월 DELL 파트너 등록</h4>
-              <p></p>
-              <h4>02월 LENOCO 파트너 등록</h4>
-              <p></p>
-              <h4>02월 본사 이전</h4>
-              <p>디테크타워(과천대로7길 33) > 상상자이타워(과천대로7길 65)</p>
+              <div class="timeline-row">
+                <div class="timeline-month">07월</div>
+                <div class="timeline-text">DELL 파트너 등록</div>
+              </div>
+              <div class="timeline-row">
+                <div class="timeline-month">02월</div>
+                <div class="timeline-text">LENOCO 파트너 등록</div>
+              </div>
+              <div class="timeline-row">
+                <div class="timeline-month">02월</div>
+                <div class="timeline-text">
+                  본사 이전
+                  <span class="sub">디테크타워(과천대로7길 33) &gt; 상상자이타워(과천대로7길 65)</span>
+                </div>
+              </div>
             </div>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-year">2024</div>
             <div class="timeline-content">
-              <h4>02월 본사 이전</h4>
-              <p>경기 수원 > 경기 과천</p>
+              <div class="timeline-row">
+                <div class="timeline-month">02월</div>
+                <div class="timeline-text">
+                  본사 이전
+                  <span class="sub">경기 수원 &gt; 경기 과천</span>
+                </div>
+              </div>
             </div>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-year">2023</div>
             <div class="timeline-content">
-              <h4>02월 주식회사 와이텍 설립</h4>
-              <p></p>
+              <div class="timeline-row">
+                <div class="timeline-month">02월</div>
+                <div class="timeline-text">주식회사 와이텍 설립</div>
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-       
+    </div>
+  </section>
 
   <footer>
-     <p>COPYRIGHT © 2026 Y-TEC ALL RIGHTS RESERVED.</p>
+    <p>COPYRIGHT © 2026 Y-TEC ALL RIGHTS RESERVED.</p>
   </footer>
 
   <script>
@@ -709,11 +1014,12 @@
 
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
-        showPanel(tab.dataset.panel);
+        const target = tab.dataset.panel;
+        showPanel(target);
+        history.replaceState(null, '', '#' + target);
       });
     });
 
-    // URL 해시로 직접 진입 가능
     const currentHash = window.location.hash.replace('#', '');
     if (currentHash) {
       const targetTab = document.querySelector(`.company-tab[data-panel="${currentHash}"]`);
