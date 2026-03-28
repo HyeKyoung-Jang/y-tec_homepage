@@ -157,23 +157,7 @@ max-width:580px;
 }
 
 .hero-label{
-display:inline-flex;
-align-items:center;
-gap:10px;
-margin-bottom:20px;
-font-size:14px;
-font-weight:800;
-letter-spacing:0.18em;
-color:#35503c;
-text-transform:uppercase;
-}
-
-.hero-label::before{
-content:"";
-display:inline-block;
-width:42px;
-height:2px;
-background:#213D28;
+display:none;
 }
 
 .hero-title{
@@ -224,89 +208,91 @@ transform:translateY(-2px);
 background:#2a4a31;
 }
 
-.hero-side-text{
+/* RIGHT SIDE NAV */
+
+.hero-side-nav{
 position:absolute;
 right:70px;
 top:50%;
 transform:translateY(-50%);
-z-index:10;
+z-index:12;
 display:flex;
 flex-direction:column;
 align-items:flex-end;
-gap:16px;
-pointer-events:none;
+gap:18px;
 }
 
-.hero-side-text span{
-position:relative;
-padding-right:68px;
+.side-item{
+display:flex;
+align-items:center;
+justify-content:flex-end;
+gap:16px;
+cursor:pointer;
+user-select:none;
+}
+
+.side-label{
 font-size:19px;
 font-style:italic;
 font-weight:600;
 color:rgba(33,61,40,0.45);
 letter-spacing:0.01em;
+transition:all 0.25s ease;
+min-width:140px;
+text-align:right;
 }
 
-.hero-side-text span::after{
-content:"";
-position:absolute;
-top:50%;
-right:18px;
+.side-line{
 width:34px;
 height:1px;
 background:rgba(33,61,40,0.24);
-transform:translateY(-50%);
-}
-
-.hero-side-text span::before{
-content:"";
-position:absolute;
-top:50%;
-right:0;
-width:7px;
-height:7px;
-border-radius:50%;
-background:rgba(33,61,40,0.35);
-transform:translateY(-50%);
-}
-
-/* SLIDE DOTS */
-
-.dots{
-position:absolute;
-bottom:38px;
-left:80px;
-z-index:12;
-display:flex;
-gap:12px;
-}
-
-.dot{
-width:12px;
-height:12px;
-border-radius:50%;
-background:rgba(33,61,40,0.24);
-border:none;
-cursor:pointer;
 transition:all 0.25s ease;
-padding:0;
 }
 
-.dot.active{
-width:34px;
-border-radius:999px;
+.side-dot{
+width:8px;
+height:8px;
+border-radius:50%;
+background:rgba(33,61,40,0.28);
+transition:all 0.25s ease;
+}
+
+.side-item.active .side-label{
+color:#213D28;
+font-weight:700;
+}
+
+.side-item.active .side-line{
+width:42px;
 background:#213D28;
 }
 
+.side-item.active .side-dot{
+width:10px;
+height:10px;
+background:#213D28;
+}
+
+.side-item:hover .side-label{
+color:#213D28;
+}
+
+.side-item:hover .side-line{
+background:#213D28;
+}
+
+.side-item:hover .side-dot{
+background:#213D28;
+}
+
+/* LEFT BOTTOM DOTS / SCROLL REMOVED */
+
+.dots{
+display:none;
+}
+
 .scroll-text{
-position:absolute;
-left:80px;
-bottom:72px;
-z-index:12;
-font-size:12px;
-font-weight:800;
-letter-spacing:0.22em;
-color:rgba(33,61,40,0.48);
+display:none;
 }
 
 /* BUSINESS */
@@ -462,7 +448,7 @@ border-top:1px solid #e4e8e5;
 
 @media (max-width:1400px){
 
-.hero-side-text{
+.hero-side-nav{
 right:40px;
 }
 
@@ -503,16 +489,13 @@ font-size:54px;
 font-size:22px;
 }
 
-.hero-side-text{
-display:none;
+.hero-side-nav{
+right:28px;
 }
 
-.dots{
-left:40px;
-}
-
-.scroll-text{
-left:40px;
+.side-label{
+font-size:17px;
+min-width:120px;
 }
 
 }
@@ -547,11 +530,6 @@ bottom:70px;
 max-width:none;
 }
 
-.hero-label{
-margin-bottom:14px;
-font-size:12px;
-}
-
 .hero-title{
 font-size:42px;
 line-height:1.14;
@@ -571,12 +549,7 @@ padding:14px 24px;
 font-size:15px;
 }
 
-.dots{
-left:24px;
-bottom:26px;
-}
-
-.scroll-text{
+.hero-side-nav{
 display:none;
 }
 
@@ -645,27 +618,33 @@ grid-template-columns:1fr;
 <div class="hero-overlay"></div>
 
 <div class="hero-text">
-<div class="hero-label">Y-TEC</div>
 <h1 class="hero-title" id="heroTitle">회사소개</h1>
 <p class="hero-desc" id="heroDesc">와이텍 소개 페이지로 이동합니다.</p>
 
 <div class="hero-buttons">
+<!-- 아래 버튼 문구는 여기서 수정 -->
 <a class="btn-primary" id="heroMainBtn" href="company.html">회사소개</a>
 </div>
 </div>
 
-<div class="hero-side-text">
-<span>Reliable</span>
-<span>Professional</span>
-<span>Trust</span>
+<div class="hero-side-nav">
+<div class="side-item active" onclick="goSlide(0)">
+<span class="side-label">Reliable</span>
+<span class="side-line"></span>
+<span class="side-dot"></span>
 </div>
 
-<div class="scroll-text">SCROLL</div>
+<div class="side-item" onclick="goSlide(1)">
+<span class="side-label">Professional</span>
+<span class="side-line"></span>
+<span class="side-dot"></span>
+</div>
 
-<div class="dots">
-<button class="dot active" onclick="goSlide(0)"></button>
-<button class="dot" onclick="goSlide(1)"></button>
-<button class="dot" onclick="goSlide(2)"></button>
+<div class="side-item" onclick="goSlide(2)">
+<span class="side-label">Trust</span>
+<span class="side-line"></span>
+<span class="side-dot"></span>
+</div>
 </div>
 
 </div>
@@ -753,7 +732,7 @@ grid-template-columns:1fr;
 <script>
 
 const slides=document.querySelectorAll(".slide");
-const dots=document.querySelectorAll(".dot");
+const sideItems=document.querySelectorAll(".side-item");
 const heroTitle=document.getElementById("heroTitle");
 const heroDesc=document.getElementById("heroDesc");
 const heroMainBtn=document.getElementById("heroMainBtn");
@@ -792,8 +771,12 @@ heroMainBtn.href=slideData[index].mainLink;
 function showSlide(index){
 slides.forEach((slide,i)=>{
 slide.classList.toggle("active",i===index);
-dots[i].classList.toggle("active",i===index);
 });
+
+sideItems.forEach((item,i)=>{
+item.classList.toggle("active",i===index);
+});
+
 currentIndex=index;
 updateHeroText(index);
 }
