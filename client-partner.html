@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>와이텍 | 고객 · 파트너</title>
 
-<link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="icon" type="image/png" href="./favicon.png">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html, body {
       margin: 0;
@@ -20,9 +18,7 @@
       color: #222;
     }
 
-    a {
-      text-decoration: none;
-    }
+    a { text-decoration: none; }
 
     .header {
       position: sticky;
@@ -31,47 +27,30 @@
       width: 100%;
       padding: 22px 56px;
       display: flex;
-      align-items: center;
-      justify-content: flex-start;
       gap: 70px;
       background: rgba(255,255,255,0.92);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(33,61,40,0.08);
     }
 
-    .header-logo img {
-      width: 170px;
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
+    .header-logo img { width: 170px; }
 
     .top-menu {
       display: flex;
-      align-items: center;
       gap: 52px;
-      flex-wrap: wrap;
     }
 
     .top-menu a {
       color: #213D28;
       font-size: 18px;
-      font-weight: 500;
-      letter-spacing: -0.01em;
     }
 
-    .top-menu a:hover,
-    .top-menu a.active {
-      color: #213D28;
-      font-weight: 700;
-    }
+    .top-menu a.active { font-weight: 700; }
 
     .hero {
-      position: relative;
-      width: 100%;
       min-height: 420px;
       background:
-        linear-gradient(90deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.55) 45%, rgba(255,255,255,0.18) 100%),
+        linear-gradient(90deg, rgba(255,255,255,0.88), rgba(255,255,255,0.2)),
         url('client&partner.png') no-repeat right center / cover;
       display: flex;
       align-items: center;
@@ -80,28 +59,16 @@
     .hero-inner {
       max-width: 1320px;
       margin: 0 auto;
-      width: 100%;
       padding: 90px 56px;
     }
 
     .hero h1 {
-      margin: 0 0 18px;
       font-size: 58px;
       color: #213D28;
-      letter-spacing: -0.03em;
-    }
-
-    .hero p {
-      margin: 0;
-      max-width: 720px;
-      font-size: 22px;
-      line-height: 1.65;
-      color: #415146;
-      font-weight: 500;
     }
 
     .section {
-      padding: 80px 56px 90px;
+      padding: 80px 56px;
     }
 
     .section-inner {
@@ -109,342 +76,192 @@
       margin: 0 auto;
     }
 
-    .section-head {
-      margin-bottom: 34px;
-    }
-
-    .section-head h2 {
-      margin: 0 0 12px;
-      font-size: 42px;
-      color: #213D28;
-      letter-spacing: -0.02em;
-    }
-
-    .section-head p {
-      margin: 0;
-      font-size: 18px;
-      color: #616761;
-      line-height: 1.7;
-    }
-
     .info-box {
       background: linear-gradient(135deg, #213D28, #335e42);
       color: white;
       border-radius: 18px;
-      padding: 32px 30px;
-      margin-bottom: 32px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      padding: 32px;
+      margin-bottom: 40px;
     }
 
-    .info-box h3 {
-      margin: 0 0 10px;
-      font-size: 28px;
-      color: white;
+    .info-box h3 { margin: 0; }
+
+    .partner-intro {
+      text-align: center;
+      margin-bottom: 30px;
     }
 
-    .info-box p {
-      margin: 0;
-      font-size: 17px;
-      line-height: 1.8;
-      color: rgba(255,255,255,0.9);
-    }
-
-    .table-wrap {
-      background: #ffffff;
-      border: 1px solid #e2e8e3;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    thead th {
-      background: #edf4ef;
+    .partner-intro h2 {
+      font-size: 36px;
       color: #213D28;
-      font-size: 17px;
-      font-weight: 700;
-      text-align: left;
-      padding: 18px 20px;
-      border-bottom: 1px solid #dfe8e2;
+      line-height: 1.5;
     }
 
-    tbody td {
-      padding: 20px;
-      font-size: 16px;
-      color: #5c625d;
+    /* 🔥 핵심 박스 */
+    .partner-board {
+      background: #edf4ef;
+      border: 1px solid #dfe8e2;
+      border-radius: 22px;
+      padding: 34px;
+    }
+
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    /* 🔥 카드 */
+    .partner-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #e2e8e3;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    /* 🔥 hover 효과 */
+    .partner-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+      border-color: #213D28;
+    }
+
+    .partner-logo-area {
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border-bottom: 1px solid #edf1ee;
-      vertical-align: middle;
+      background: #fff;
     }
 
-    tbody tr:last-child td {
-      border-bottom: none;
-    }
-
-    .logo-cell img {
+    /* 🔥 로고 확대 */
+    .partner-logo-area img {
       max-width: 140px;
-      max-height: 56px;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      display: block;
+      max-height: 70px;
+      transition: transform 0.25s ease;
     }
 
-    .logo-placeholder {
+    .partner-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .partner-placeholder {
       width: 140px;
-      height: 56px;
+      height: 60px;
       border: 1px dashed #bfd0c5;
       border-radius: 10px;
-      background: #f8faf8;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #7a867d;
-      font-size: 13px;
       font-weight: 600;
     }
 
-    .guide-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-      margin-top: 34px;
-    }
-
-    .guide-card {
-      background: #ffffff;
-      border: 1px solid #e2e8e3;
-      border-radius: 18px;
-      padding: 26px 24px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-    }
-
-    .guide-card h4 {
-      margin: 0 0 10px;
-      font-size: 22px;
-      color: #213D28;
-    }
-
-    .guide-card p {
-      margin: 0;
+    .partner-name {
+      text-align: center;
+      padding: 14px;
       font-size: 15px;
-      color: #606661;
-      line-height: 1.8;
+      color: #485149;
     }
 
-    .cta-box {
+    /* 🔥 more 카드 */
+    .more-card .partner-logo-area {
       background: linear-gradient(135deg, #213D28, #335e42);
       color: white;
-      border-radius: 20px;
-      padding: 38px 34px;
-      margin-top: 34px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
+      flex-direction: column;
     }
 
-    .cta-box h3 {
-      margin: 0 0 8px;
-      font-size: 30px;
-      color: white;
+    .more-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 14px 30px rgba(33,61,40,0.25);
     }
 
-    .cta-box p {
-      margin: 0;
-      font-size: 17px;
-      color: rgba(255,255,255,0.88);
-      line-height: 1.7;
-    }
-
-    .cta-box a {
-      display: inline-block;
-      padding: 14px 26px;
-      border-radius: 8px;
-      background: white;
-      color: #213D28;
-      font-weight: 700;
-      white-space: nowrap;
+    .more-dots {
+      font-size: 40px;
+      letter-spacing: 6px;
     }
 
     footer {
-      background: #ffffff;
-      color: #9aa19c;
       text-align: center;
-      padding: 26px 20px;
+      padding: 26px;
       font-size: 13px;
+      color: #9aa19c;
       border-top: 1px solid #e4e8e5;
-    }
-
-    @media (max-width: 1024px) {
-      .header {
-        padding: 22px 28px;
-        gap: 40px;
-      }
-
-      .top-menu {
-        gap: 28px;
-      }
-
-      .hero-inner,
-      .section {
-        padding-left: 28px;
-        padding-right: 28px;
-      }
-
-      .guide-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .header {
-        padding: 18px 20px;
-        align-items: flex-start;
-        gap: 18px;
-        flex-direction: column;
-      }
-
-      .header-logo img {
-        width: 140px;
-      }
-
-      .top-menu {
-        gap: 12px 18px;
-        justify-content: flex-start;
-      }
-
-      .top-menu a {
-        font-size: 15px;
-      }
-
-      .hero-inner,
-      .section {
-        padding-left: 20px;
-        padding-right: 20px;
-      }
-
-      .hero {
-        min-height: 360px;
-        background-position: center right;
-      }
-
-      .hero h1 {
-        font-size: 38px;
-      }
-
-      .hero p {
-        font-size: 18px;
-      }
-
-      .section-head h2 {
-        font-size: 32px;
-      }
-
-      .table-wrap {
-        overflow-x: auto;
-      }
-
-      table {
-        min-width: 700px;
-      }
+      margin-top: 40px;
     }
   </style>
 </head>
 
 <body>
-  <header class="header">
-    <a href="index.html" class="header-logo">
-      <img src="logo.png" alt="와이텍 로고" />
-    </a>
 
-    <nav class="top-menu">
-      <a href="company.html">회사소개</a>
-      <a href="business.html">비즈니스</a>
-      <a href="client-partner.html" class="active">고객 · 파트너</a>
-      <a href="recruit.html">채용</a>
-      <a href="location.html">회사위치</a>
-    </nav>
-  </header>
+<header class="header">
+  <a href="index.html" class="header-logo">
+    <img src="logo.png">
+  </a>
 
-  <section class="hero">
-    <div class="hero-inner">
-      <h1>Client · Partner</h1>
-      <p></p>
+  <nav class="top-menu">
+    <a href="company.html">회사소개</a>
+    <a href="business.html">비즈니스</a>
+    <a href="client-partner.html" class="active">고객 · 파트너</a>
+    <a href="recruit.html">채용</a>
+    <a href="location.html">회사위치</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Client · Partner</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+
+    <div class="info-box">
+      <h3>와이텍은 글로벌 벤더의 파트너로서 고객의 신뢰를 바탕으로 성장합니다.</h3>
     </div>
-  </section>
 
-  <section class="section">
-    <div class="section-inner">
-      <div class="info-box">
-        <h3>와이텍은 글로벌 벤더의 파트너로서 고객의 신뢰를 바탕으로 성장합니다.</h3>
-        <p></p>
-      </div>
+    <div class="partner-intro">
+      <h2>
+        고객 맞춤형 IT서비스를 제공하기 위하여<br>
+        국내·외 벤더 및 우수한 파트너들과 함께 합니다.
+      </h2>
+    </div>
 
-         <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th style="width: 120px;"></th>
-              <th style="width: 220px;">회사명</th>
-              <th style="width: 220px;">로고</th>
-              <th>비고</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>파트너</td>
-              <td>회사명 입력</td>
-              <td class="logo-cell">
-                <img src="client&partner.png" alt="고객 및 파트너 로고">
-              </td>
-              <td>현재 등록된 이미지</td>
-            </tr>
-            <tr>
-              <td>고객</td>
-              <td>추가 예정</td>
-              <td class="logo-cell">
-                <div class="logo-placeholder">logo file</div>
-              </td>
-              <td>향후 추가 가능</td>
-            </tr>
-            <tr>
-              <td>파트너</td>
-              <td>추가 예정</td>
-              <td class="logo-cell">
-                <div class="logo-placeholder">logo file</div>
-              </td>
-              <td>향후 추가 가능</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="partner-board">
+      <div class="partner-grid">
 
-      <div class="guide-grid">
-        <div class="guide-card">
-          <h4>수정 방법 1</h4>
-          <p>회사명은 표 안의 텍스트만 바꾸면 되고, 로고는 <code>img src</code> 경로만 교체하면 바로 적용됩니다.</p>
+        <!-- 반복 -->
+        <div class="partner-card">
+          <div class="partner-logo-area">
+            <div class="partner-placeholder">LOGO</div>
+          </div>
+          <div class="partner-name">회사명</div>
         </div>
 
-        <div class="guide-card">
-          <h4>수정 방법 2</h4>
-          <p>고객사나 파트너사가 늘어나면 기존 <code>&lt;tr&gt;</code> 행을 복사해서 아래에 추가하면 동일한 형식으로 확장할 수 있습니다.</p>
+        <!-- 동일하게 10개 넣으면 됨 -->
+
+        <!-- 🔥 more -->
+        <div class="partner-card more-card">
+          <div class="partner-logo-area">
+            <div class="more-dots">...</div>
+            <div>More</div>
+          </div>
+          <div class="partner-name">To be continued</div>
         </div>
 
-        <div class="guide-card">
-          <h4>추후 확장</h4>
-          <p>항목이 많아지면 나중에 고객사/파트너사를 두 개 섹션으로 나누거나 카드형으로 확장하는 것도 가능합니다.</p>
-        </div>
       </div>
+    </div>
 
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <p>COPYRIGHT © 2026 Y-TEC ALL RIGHTS RESERVED.</p>
-  </footer>
+<footer>
+  COPYRIGHT © 2026 Y-TEC ALL RIGHTS RESERVED.
+</footer>
+
 </body>
 </html>
