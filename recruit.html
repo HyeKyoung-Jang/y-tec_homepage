@@ -127,12 +127,6 @@
       line-height: 1.7;
     }
 
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px;
-    }
-
     .card {
       background: #ffffff;
       border: 1px solid #e5ebe6;
@@ -261,36 +255,94 @@
       white-space: nowrap;
     }
 
-    .continue-box {
-      background: linear-gradient(135deg, #213D28, #335e42);
-      color: white;
-      border-radius: 20px;
-      padding: 46px 34px;
-      margin-top: 10px;
+    .benefit-tags {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .benefit-tags span {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: #213D28;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .benefit-intro {
       text-align: center;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      margin-bottom: 34px;
     }
 
-    .continue-box .dots {
-      font-size: 44px;
-      font-weight: 800;
-      line-height: 1;
-      letter-spacing: 8px;
-      margin-bottom: 16px;
+    .benefit-intro p {
+      margin: 0;
+      font-size: 18px;
+      color: #616761;
+      line-height: 1.8;
     }
 
-    .continue-box h3 {
-      margin: 0 0 10px;
-      font-size: 34px;
-      color: white;
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .benefit-card {
+      background: #ffffff;
+      border: 1px solid #e5ebe6;
+      border-radius: 20px;
+      padding: 32px 28px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+      transition: all 0.25s ease;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(33,61,40,0.10);
+      border-color: #213D28;
+      background: #ffffff;
+    }
+
+    .benefit-icon {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: #213D28;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+    }
+
+    .benefit-icon svg {
+      width: 40px;
+      height: 40px;
+      stroke: #ffffff;
+      stroke-width: 1.8;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .benefit-card h3 {
+      margin: 0 0 14px;
+      font-size: 28px;
+      color: #213D28;
       letter-spacing: -0.02em;
+      line-height: 1.45;
+      word-break: keep-all;
     }
 
-    .continue-box p {
+    .benefit-card p {
       margin: 0;
       font-size: 17px;
-      color: rgba(255,255,255,0.88);
       line-height: 1.8;
+      color: #4f5a53;
+      word-break: keep-all;
     }
 
     footer {
@@ -318,12 +370,16 @@
         padding-right: 28px;
       }
 
-      .grid-3 {
+      .process-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .benefit-grid {
         grid-template-columns: 1fr;
       }
 
-      .process-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .benefit-card h3 {
+        font-size: 24px;
       }
     }
 
@@ -383,8 +439,30 @@
         font-size: 24px;
       }
 
-      .continue-box h3 {
-        font-size: 28px;
+      .benefit-intro p {
+        font-size: 16px;
+      }
+
+      .benefit-card {
+        padding: 28px 22px;
+      }
+
+      .benefit-card h3 {
+        font-size: 22px;
+      }
+
+      .benefit-card p {
+        font-size: 16px;
+      }
+
+      .benefit-icon {
+        width: 74px;
+        height: 74px;
+      }
+
+      .benefit-icon svg {
+        width: 34px;
+        height: 34px;
       }
     }
   </style>
@@ -407,7 +485,7 @@
 
   <section class="hero">
     <div class="hero-inner">
-      <h1>Rucruit</h1>
+      <h1>Recruit</h1>
       <p></p>
     </div>
   </section>
@@ -457,7 +535,7 @@
       <div class="recruit-link-box">
         <div>
           <h3>채용공고 바로가기</h3>
-          <p>https://</p>
+          <p>채용진행예정</p>
         </div>
 
         <a href="#" target="_blank" rel="noopener">채용공고 보러가기</a>
@@ -467,10 +545,117 @@
         <h2>복리후생</h2>
       </div>
 
-      <div class="continue-box">
-        <div class="dots"></div>
-        <h3>To be continued</h3>
-        <p></p>
+      <div class="benefit-intro">
+        <div class="benefit-tags">
+          <span>#워라밸</span>
+          <span>#직원의 복지가</span>
+          <span>#회사의 성장으로</span>
+        </div>
+        <p>와이텍은 임직원의 안정적인 생활과 성장, 그리고 함께 일하기 좋은 업무 환경을 위해 다양한 복리후생 제도를 운영하고 있습니다.</p>
+      </div>
+
+      <div class="benefit-grid">
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 12h4l2-4 3 8 2-4h7"/>
+              <path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"/>
+            </svg>
+          </div>
+          <h3>안정된 생활을 지원합니다.</h3>
+          <p>
+            경조사 지원<br>
+            통신비 지원<br>
+            자녀육아지원금
+          </p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="8"/>
+              <path d="M12 8v5l3 2"/>
+              <path d="M4 6l2-2"/>
+            </svg>
+          </div>
+          <h3>직원들의 여가 생활을 지원합니다.</h3>
+          <p>
+            자유로운 연차 사용<br>
+            법인콘도 이용 지원(숙박비 지원)
+          </p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 19h16"/>
+              <path d="M7 16V5h10v11"/>
+              <path d="M9 9h6"/>
+              <path d="M9 12h6"/>
+            </svg>
+          </div>
+          <h3>자기계발을 존중합니다.</h3>
+          <p>
+            자격증 취득 비용 지원(강의료, 응시료 등)<br>
+            상위 진학 학자금 지원<br>
+            해외 IT 박람회 참관 지원
+          </p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="9" cy="9" r="3"/>
+              <circle cx="17" cy="15" r="3"/>
+              <path d="M11.5 10.5l3 3"/>
+              <path d="M4 19c.8-2 2.7-3 5-3"/>
+              <path d="M12 20c.8-2 2.7-3 5-3"/>
+            </svg>
+          </div>
+          <h3>직원 중심의 문화를 만들어갑니다.</h3>
+          <p>
+            신입사원 OJT 교육<br>
+            체계적인 교육 프로그램<br>
+            원두커피 및 간식 제공
+          </p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="4" y="5" width="16" height="11" rx="1.5"/>
+              <path d="M8 19h8"/>
+              <path d="M12 16v3"/>
+            </svg>
+          </div>
+          <h3>편안한 업무 환경을 제공합니다.</h3>
+          <p>
+            개발 및 서버 테스트실 완비<br>
+            고유 기자재 제공<br>
+            노트북 및 주변기기 지급<br>
+            듀얼모니터 제공
+          </p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20 12v7H4v-7"/>
+              <path d="M12 19V7"/>
+              <path d="M4 12h16"/>
+              <path d="M7 7a2.5 2.5 0 1 1 5 0c0 1.2-.7 2-2 2H7z"/>
+              <path d="M12 7h3a2.5 2.5 0 1 0-2.5-2.5"/>
+            </svg>
+          </div>
+          <h3>와이텍만의 특별한 복지를 제공합니다.</h3>
+          <p>
+            생일선물 지급<br>
+            명절선물 지급<br>
+            팀 소통 비용 지급
+          </p>
+        </div>
+
       </div>
 
     </div>
