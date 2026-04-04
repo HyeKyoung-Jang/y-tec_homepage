@@ -1,67 +1,417 @@
-<div class="partner-grid">
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>와이텍 | 고객 · 파트너</title>
 
-  <div class="partner-card">
-    <div class="partner-logo-area">
-      <img src="logo1.png" alt="회사명 01">
+  <link rel="icon" type="image/png" href="./favicon.png">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f8f7;
+      color: #222;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      padding: 22px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 70px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(33,61,40,0.08);
+    }
+
+    .header-logo img {
+      width: 170px;
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .top-menu {
+      display: flex;
+      align-items: center;
+      gap: 52px;
+      flex-wrap: wrap;
+    }
+
+    .top-menu a {
+      color: #213D28;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .top-menu a:hover,
+    .top-menu a.active {
+      color: #213D28;
+      font-weight: 700;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 420px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.55) 45%, rgba(255,255,255,0.18) 100%),
+        url('client&partner.png') no-repeat right center / cover;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 90px 56px;
+    }
+
+    .hero h1 {
+      margin: 0 0 18px;
+      font-size: 58px;
+      color: #213D28;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 720px;
+      font-size: 22px;
+      line-height: 1.65;
+      color: #415146;
+      font-weight: 500;
+    }
+
+    .section {
+      padding: 80px 56px 90px;
+    }
+
+    .section-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+
+    .partner-intro {
+      text-align: center;
+      margin-bottom: 34px;
+    }
+
+    .partner-intro h2 {
+      margin: 0 0 12px;
+      font-size: 40px;
+      color: #213D28;
+      letter-spacing: -0.02em;
+      line-height: 1.45;
+    }
+
+    .partner-intro p {
+      margin: 0;
+      font-size: 18px;
+      color: #616761;
+      line-height: 1.8;
+    }
+
+    .partner-board {
+      background: #edf4ef;
+      border: 1px solid #dfe8e2;
+      border-radius: 22px;
+      padding: 34px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    }
+
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .partner-card {
+      background: #ffffff;
+      border: 1px solid #dfe5e1;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .partner-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+      border-color: #213D28;
+    }
+
+    .partner-logo-area {
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: #ffffff;
+      border-bottom: 1px solid #edf1ee;
+    }
+
+    .partner-logo-area img {
+      max-width: 150px;
+      max-height: 70px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.25s ease;
+    }
+
+    .partner-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .partner-name {
+      padding: 16px 14px;
+      text-align: center;
+      font-size: 16px;
+      color: #485149;
+      line-height: 1.5;
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      word-break: keep-all;
+    }
+
+    .partner-card.more-card .partner-logo-area {
+      background: linear-gradient(135deg, #213D28, #335e42);
+      color: white;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .more-text {
+      font-size: 16px;
+      font-weight: 700;
+      opacity: 0.92;
+    }
+
+    .partner-card.more-card .partner-name {
+      color: #213D28;
+      font-weight: 700;
+    }
+
+    .partner-card.more-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 14px 30px rgba(33,61,40,0.25);
+    }
+
+    footer {
+      background: #ffffff;
+      color: #9aa19c;
+      text-align: center;
+      padding: 26px 20px;
+      font-size: 13px;
+      border-top: 1px solid #e4e8e5;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 1024px) {
+      .header {
+        padding: 22px 28px;
+        gap: 40px;
+      }
+
+      .top-menu {
+        gap: 28px;
+      }
+
+      .hero-inner,
+      .section {
+        padding-left: 28px;
+        padding-right: 28px;
+      }
+
+      .partner-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        padding: 18px 20px;
+        align-items: flex-start;
+        gap: 18px;
+        flex-direction: column;
+      }
+
+      .header-logo img {
+        width: 140px;
+      }
+
+      .top-menu {
+        gap: 12px 18px;
+        justify-content: flex-start;
+      }
+
+      .top-menu a {
+        font-size: 15px;
+      }
+
+      .hero-inner,
+      .section {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .hero {
+        min-height: 360px;
+        background-position: center right;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .partner-intro h2 {
+        font-size: 30px;
+      }
+
+      .partner-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .partner-board {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <a href="index.html" class="header-logo">
+      <img src="logo.png" alt="와이텍 로고" />
+    </a>
+
+    <nav class="top-menu">
+      <a href="company.html">회사소개</a>
+      <a href="business.html">비즈니스</a>
+      <a href="client-partner.html" class="active">고객 · 파트너</a>
+      <a href="recruit.html">채용</a>
+      <a href="location.html">회사위치</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Client · Partner</h1>
+      <p></p>
     </div>
-    <div class="partner-name">회사명 01</div>
-  </div>
+  </section>
 
-  <div class="partner-card">
-    <div class="partner-logo-area">
-      <img src="logo2.png" alt="회사명 02">
+  <section class="section">
+    <div class="section-inner">
+
+      <div class="partner-intro">
+        <h2>고객 맞춤형 IT서비스를 제공하기 위하여<br>국내·외 벤더 및 우수한 파트너들과 함께 합니다.</h2>
+        <p>와이텍의 고객 및 파트너 네트워크를 소개합니다.</p>
+      </div>
+
+      <div class="partner-board">
+        <div class="partner-grid">
+
+          <div class="partner-card">
+            <div class="partner-logo-area">
+              <img src="dining.png" alt="다이닝브랜즈">
+            </div>
+            <div class="partner-name">다이닝브랜즈</div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo-area">
+              <img src="lotte.svg" alt="롯데쇼핑">
+            </div>
+            <div class="partner-name">롯데쇼핑</div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo-area">
+              <img src="incheon.png" alt="인천국제공항">
+            </div>
+            <div class="partner-name">인천국제공항</div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo-area">
+              <img src="skco.png" alt="SK주식회사">
+            </div>
+            <div class="partner-name">SK주식회사</div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo-area">
+              <img src="hanhwa.png" alt="한화생명">
+            </div>
+            <div class="partner-name">한화생명</div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo-area">
+              <img src="suhyup.png" alt="수협">
+            </div>
+            <div class="partner-name">수협</div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo-area">
+              <img src="skshield.png" alt="SK쉴더스">
+            </div>
+            <div class="partner-name">SK쉴더스</div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo-area">
+              <img src="kcb.png" alt="KCB">
+            </div>
+            <div class="partner-name">KCB</div>
+          </div>
+
+          <div class="partner-card more-card">
+            <div class="partner-logo-area">
+              <div class="more-text">More</div>
+            </div>
+            <div class="partner-name">To be continued</div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
-    <div class="partner-name">회사명 02</div>
-  </div>
+  </section>
 
-  <div class="partner-card">
-    <div class="partner-logo-area">
-      <img src="logo3.png" alt="회사명 03">
-    </div>
-    <div class="partner-name">회사명 03</div>
-  </div>
-
-  <div class="partner-card">
-    <div class="partner-logo-area">
-      <img src="logo4.png" alt="회사명 04">
-    </div>
-    <div class="partner-name">회사명 04</div>
-  </div>
-
-  <div class="partner-card">
-    <div class="partner-logo-area">
-      <img src="logo5.png" alt="회사명 05">
-    </div>
-    <div class="partner-name">회사명 05</div>
-  </div>
-
-  <div class="partner-card">
-    <div class="partner-logo-area">
-      <img src="logo6.png" alt="회사명 06">
-    </div>
-    <div class="partner-name">회사명 06</div>
-  </div>
-
-  <div class="partner-card">
-    <div class="partner-logo-area">
-      <img src="logo7.png" alt="회사명 07">
-    </div>
-    <div class="partner-name">회사명 07</div>
-  </div>
-
-  <div class="partner-card">
-    <div class="partner-logo-area">
-      <img src="logo8.png" alt="회사명 08">
-    </div>
-    <div class="partner-name">회사명 08</div>
-  </div>
-
-  <!-- 마지막 유지 -->
-  <div class="partner-card more-card">
-    <div class="partner-logo-area">
-      <div class="more-text">More</div>
-    </div>
-    <div class="partner-name">To be continued</div>
-  </div>
-
-</div>
+  <footer>
+    <p>COPYRIGHT © 2026 Y-TEC ALL RIGHTS RESERVED.</p>
+  </footer>
+</body>
+</html>
